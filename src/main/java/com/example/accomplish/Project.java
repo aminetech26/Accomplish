@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Project {
     private String project_name;
     private String project_description;
-    private ArrayList<planning> list_planning;
+    //private ArrayList<planning> list_planning;
     private ArrayList<Categorie> project_categories;
     private int project_avancement; // pourcentage
     private ArrayList<Tache> Taches_unscheduled;
@@ -28,12 +28,12 @@ public class Project {
     public void setProject_description(String project_description) {
         this.project_description = project_description;
     }
-    public ArrayList<planning> getList_planning() {
+   /* public ArrayList<planning> getList_planning() {
         return list_planning;
     }
     public void setList_planning(ArrayList<planning> list_planning) {
         this.list_planning = list_planning;
-    }
+    }*/
     public ArrayList<Categorie> getProject_categories() {
         return project_categories;
     }
