@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Planning {
     private String planning_name;
-    //private ArrayList<Tache> liste_taches;
-    //private ArrayList<Crenau> crenaux_libres;
+    private ArrayList<Tache> liste_taches;
+    private ArrayList<Creneau> crenaux_libres;
     private Date date_debut;
 
     public Planning(String planning_name) {
@@ -20,12 +20,8 @@ public class Planning {
     public void setPlanning_name(String planning_name) {
         this.planning_name = planning_name;
     }
-    /*
     public void ajouter_tache(Tache tache){
-      //  liste_taches.add(tache);
+        liste_taches.add(tache);
     }
-    public void ajouter_tache(Tache tache){
-       // liste_taches.add(tache);
-    }*/
 
 }

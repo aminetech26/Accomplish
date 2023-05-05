@@ -1,5 +1,7 @@
 package com.example.accomplish;
 
+import java.util.ArrayList;
+
 public class Tache {
     private String tache_name;
     private Priorite tache_priorite;
@@ -85,5 +87,29 @@ public class Tache {
     }
     public void setTache_locked(boolean tache_locked) {
         this.tache_locked = tache_locked;
+    }
+
+    public void affect_etat_realisation(Etat_Realisation etat_realisation){
+        this.tache_etat_realisation=etat_realisation;
+    }
+    public void afficher(){
+        System.out.println("tache name :"+this.tache_name);
+        System.out.println("tache priorite :"+this.tache_priorite);
+        System.out.println("this tache has a deadline :"+this.ifdeadline);
+        if(this.ifdeadline){
+            System.out.println("tache deadline :"+this.deadline);
+        }
+        System.out.println("tache categorie :");
+        this.tache_categorie.afficher();
+        System.out.println("tache duree :"+this.duree);
+        System.out.println("tasktype :"+this.tasktype);
+        System.out.println(" this tache is scheduled"+this.scheduled);
+        System.out.println(" etat de realisation "+this.tache_etat_realisation);
+        System.out.println(" tache locked :"+this.tache_locked);
+    }
+    public void choose_categorie(ArrayList<Categorie> project_categories){
+      for(int i=0;i < project_categories.size();i++){
+          System.out.println(project_categories.get(i)+":"+i);
+      }
     }
 }

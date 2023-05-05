@@ -40,4 +40,8 @@ public class Categorie {
         }
         return Objects.equals(this.Categorie_color,other.Categorie_color);
     }
+    public void afficher(){
+        System.out.println("categorie name "+this.categorie_name);
+        System.out.println("categorie color "+this.Categorie_color);
+    }
 }

@@ -54,4 +54,11 @@ public class Creneau {
     public void setDuree(int duree) {
         this.duree = duree;
     }
+    public void afficher(){
+        System.out.println("creneau date:"+this.creneau_date);
+        System.out.println("creneau status:"+this.libre);
+        System.out.println("creneau heure-debut :"+this.heure_debut);
+        System.out.println("creneau heure-fin :"+this.heure_fin);
+        System.out.println("creneau duree :"+this.duree);
+    }
 }
