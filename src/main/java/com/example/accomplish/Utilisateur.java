@@ -27,9 +27,6 @@ public class Utilisateur {
     public void sinscrire(String username,String password){
 
     }
-    public void sauthentifier(String username,String password){
-
-    }
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

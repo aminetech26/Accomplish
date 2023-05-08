@@ -49,17 +49,16 @@ public class Planning {
     public void setPlanning_name(String planning_name) {
         this.planning_name = planning_name;
     }
-
     public void ajouter_tache(Tache tache){
         liste_taches.add(tache);
     }
     public void modifier_tache(Tache oldtache, Tache newtache){
-       if( liste_taches.contains(oldtache)){
-          int index = liste_taches.indexOf(oldtache);
-          liste_taches.add(index,newtache);
-       }else{
-           System.out.println("no such old task");
-       }
+        if( liste_taches.contains(oldtache)){
+            int index = liste_taches.indexOf(oldtache);
+            liste_taches.add(index,newtache);
+        }else{
+            System.out.println("no such old task");
+        }
     }
 
 }

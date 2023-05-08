@@ -45,4 +45,21 @@ public class Journee {
     public void setEtat_avancement(int etat_avancement) {
         this.etat_avancement = etat_avancement;
     }
+    public void afficher(){
+        System.out.println("**************************** journee creneaus *********************************");
+        for (Creneau creneau:this.today_creneaus) {
+            System.out.println("--------------------------------------------------------------------");
+            creneau.afficher();
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println(" ");
+        }
+        System.out.println("**************************** journee taches   *********************************");
+        for (Tache task:this.today_taches) {
+            System.out.println("--------------------------------------------------------------------");
+            task.afficher();
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println(" nombre de task accomplished :"+this.nb_tasks_accomplished);
+            System.out.println(" etat d'avancement : "+this.etat_avancement);
+        }
+    }
 }
