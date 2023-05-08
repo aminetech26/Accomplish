@@ -1,33 +1,34 @@
 package com.example.accomplish;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Journee {
-    private ArrayList<Creneau> today_creneaus;
-    private ArrayList<Tache> today_taches;
+    private List<Creneau> today_creneaus;
+    private List<Tache> today_taches;
     private int nb_tasks_accomplished;
     private int etat_avancement;
 
-    public Journee(ArrayList<Creneau> today_creneaus, ArrayList<Tache> today_taches, int nb_tasks_accomplished, int etat_avancement) {
+    public Journee(List<Creneau> today_creneaus, List<Tache> today_taches, int nb_tasks_accomplished, int etat_avancement) {
         this.today_creneaus = today_creneaus;
         this.today_taches = today_taches;
         this.nb_tasks_accomplished = nb_tasks_accomplished;
         this.etat_avancement = etat_avancement;
     }
 
-    public ArrayList<Creneau> getToday_creneaus() {
+    public List<Creneau> getToday_creneaus() {
         return today_creneaus;
     }
 
-    public void setToday_creneaus(ArrayList<Creneau> today_creneaus) {
+    public void setToday_creneaus(List<Creneau> today_creneaus) {
         this.today_creneaus = today_creneaus;
     }
 
-    public ArrayList<Tache> getToday_taches() {
+    public List<Tache> getToday_taches() {
         return today_taches;
     }
 
-    public void setToday_taches(ArrayList<Tache> today_taches) {
+    public void setToday_taches(List<Tache> today_taches) {
         this.today_taches = today_taches;
     }
 

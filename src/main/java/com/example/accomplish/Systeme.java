@@ -16,9 +16,9 @@ public class Systeme {
 
     private static int seuil_minimal;
     private static int nb_tache_minimal;
-    private ArrayList<Utilisateur> users_list;
+    private List<Utilisateur> users_list;
 
-    public Systeme(ArrayList<Utilisateur> users_list) {
+    public Systeme(List<Utilisateur> users_list) {
         this.users_list = users_list;
     }
 
@@ -38,11 +38,11 @@ public class Systeme {
         Systeme.nb_tache_minimal = nb_tache_minimal;
     }
 
-    public ArrayList<Utilisateur> getUsers_list() {
+    public List<Utilisateur> getUsers_list() {
         return users_list;
     }
 
-    public void setUsers_list(ArrayList<Utilisateur> users_list) {
+    public void setUsers_list(List<Utilisateur> users_list) {
         this.users_list = users_list;
     }
 
@@ -102,8 +102,8 @@ public class Systeme {
         writer.close();
     }
 
-    public static ArrayList<Utilisateur> loadUsers() throws IOException {
-        ArrayList<Utilisateur> users = new ArrayList<>();
+    public static List<Utilisateur> loadUsers() throws IOException {
+        List<Utilisateur> users = new ArrayList<Utilisateur>();
         BufferedReader reader = new BufferedReader(new FileReader(userDataFilePath));
         String line;
         while ((line = reader.readLine()) != null) {

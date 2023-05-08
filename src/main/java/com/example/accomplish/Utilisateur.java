@@ -1,6 +1,7 @@
 package com.example.accomplish;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Utilisateur {
@@ -14,7 +15,16 @@ public class Utilisateur {
     public void setPassword(String password) {
         this.password = password;
     }
-//private ArrayList<Projet> liste_projet;
+
+    public List<Project> getListe_projet() {
+        return liste_projet;
+    }
+
+    public void setListe_projet(List<Project> liste_projet) {
+        this.liste_projet = liste_projet;
+    }
+
+    private List<Project> liste_projet;
 
     public String getUsername() {
         return username;

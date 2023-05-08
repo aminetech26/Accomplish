@@ -1,15 +1,16 @@
 package com.example.accomplish;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Project {
     private String project_name;
     private String project_description;
-    private ArrayList<Planning> list_planning;
-    private ArrayList<Categorie> project_categories;
+    private List<Planning> list_planning;
+    private List<Categorie> project_categories;
     private double project_avancement; // pourcentage
-    private ArrayList<Tache> Taches_unscheduled;
-    public Project(String project_name, String project_description, ArrayList<Categorie> project_categories) {
+    private List<Tache> Taches_unscheduled;
+    public Project(String project_name, String project_description, List<Categorie> project_categories) {
         this.project_name = project_name;
         this.project_description = project_description;
         this.project_categories = project_categories;
@@ -28,17 +29,17 @@ public class Project {
     public void setProject_description(String project_description) {
         this.project_description = project_description;
     }
-    public ArrayList<Planning> getList_planning() {
+    public List<Planning> getList_planning() {
         return list_planning;
     }
-    public void setList_planning(ArrayList<Planning> list_planning) {
+    public void setList_planning(List<Planning> list_planning) {
         this.list_planning = list_planning;
     }
-    public ArrayList<Categorie> getProject_categories() {
+    public List<Categorie> getProject_categories() {
         return project_categories;
     }
 
-    public void setProject_categories(ArrayList<Categorie> project_categories) {
+    public void setProject_categories(List<Categorie> project_categories) {
         this.project_categories = project_categories;
     }
 
@@ -48,10 +49,10 @@ public class Project {
     public void setProject_avancement(double project_avancement) {
         this.project_avancement = project_avancement;
     }
-    public ArrayList<Tache> getTaches_unscheduled() {
+    public List<Tache> getTaches_unscheduled() {
         return Taches_unscheduled;
     }
-    public void setTaches_unscheduled(ArrayList<Tache> taches_unscheduled) {
+    public void setTaches_unscheduled(List<Tache> taches_unscheduled) {
         Taches_unscheduled = taches_unscheduled;
     }
     public void add_categorie(String categoriename,String categoriecolor){
