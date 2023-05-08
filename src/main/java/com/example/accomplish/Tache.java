@@ -14,7 +14,7 @@ public class Tache {
     private Etat_Realisation tache_etat_realisation;
     private boolean tache_locked=false;
 
-    public Tache(String tache_name, Priorite tache_priorite, boolean ifdeadline, int deadline, Categorie tache_categorie, boolean tasktype, boolean scheduled, boolean tache_locked) {
+    public Tache(String tache_name, Priorite tache_priorite, boolean ifdeadline, int deadline, Categorie tache_categorie, boolean tasktype, boolean tache_locked) {
         this.tache_name = tache_name;
         this.tache_priorite = tache_priorite;
         this.ifdeadline = ifdeadline;
@@ -103,7 +103,6 @@ public class Tache {
         this.tache_categorie.afficher();
         System.out.println("tache duree :"+this.duree);
         System.out.println("tasktype :"+this.tasktype);
-        System.out.println(" this tache is scheduled"+this.scheduled);
         System.out.println(" etat de realisation "+this.tache_etat_realisation);
         System.out.println(" tache locked :"+this.tache_locked);
     }

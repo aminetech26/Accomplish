@@ -12,7 +12,7 @@ public class Tache_simple extends Tache{
     }
 
     public Tache_simple(String tache_name, Priorite tache_priorite, boolean ifdeadline, int deadline, Categorie tache_categorie, boolean tasktype, boolean scheduled, boolean tache_locked, Peridicite tache_periodicite) {
-        super(tache_name, tache_priorite, ifdeadline, deadline, tache_categorie, tasktype, scheduled, tache_locked);
+        super(tache_name, tache_priorite, ifdeadline, deadline, tache_categorie, tasktype, tache_locked);
         this.tache_periodicite = tache_periodicite;
     }
     public Tache_simple() {
@@ -42,8 +42,6 @@ public class Tache_simple extends Tache{
             return false;
         if(!Objects.equals(this.getTache_etat_realisation(),other.getTache_etat_realisation()))
             return false;
-        if(!Objects.equals(this.isTache_locked(),other.isTache_locked()))
-            return false;
-        return Objects.equals(this.isScheduled(),other.isScheduled());
+        return Objects.equals(this.isTache_locked(),other.isTache_locked());
     }
 }
