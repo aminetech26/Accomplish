@@ -8,18 +8,16 @@ public class Tache {
     private Categorie tache_categorie;
     private int duree;
     private  boolean tasktype; // decomposable ou non
-    private  boolean scheduled=false;
     private Etat_Realisation tache_etat_realisation;
     private boolean tache_locked=false;
 
-    public Tache(String tache_name, Priorite tache_priorite, boolean ifdeadline, int deadline, Categorie tache_categorie, boolean tasktype, boolean scheduled, boolean tache_locked) {
+    public Tache(String tache_name, Priorite tache_priorite, boolean ifdeadline, int deadline, Categorie tache_categorie, boolean tasktype, boolean tache_locked) {
         this.tache_name = tache_name;
         this.tache_priorite = tache_priorite;
         this.ifdeadline = ifdeadline;
         this.deadline = deadline;
         this.tache_categorie = tache_categorie;
         this.tasktype = tasktype;
-        this.scheduled = scheduled;
         this.tache_locked = tache_locked;
     }
 
@@ -67,12 +65,6 @@ public class Tache {
     }
     public void setTasktype(boolean tasktype) {
         this.tasktype = tasktype;
-    }
-    public boolean isScheduled() {
-        return scheduled;
-    }
-    public void setScheduled(boolean scheduled) {
-        this.scheduled = scheduled;
     }
     public Etat_Realisation getTache_etat_realisation() {
         return tache_etat_realisation;

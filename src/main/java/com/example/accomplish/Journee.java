@@ -6,7 +6,6 @@ public class Journee {
     private ArrayList<Creneau> today_creneaus;
     private ArrayList<Tache> today_taches;
     private int nb_tasks_accomplished;
-    private static int nb_tasks_min;
     private int etat_avancement;
 
     public Journee(ArrayList<Creneau> today_creneaus, ArrayList<Tache> today_taches, int nb_tasks_accomplished, int etat_avancement) {
@@ -39,15 +38,6 @@ public class Journee {
     public void setNb_tasks_accomplished(int nb_tasks_accomplished) {
         this.nb_tasks_accomplished = nb_tasks_accomplished;
     }
-
-    public static int getNb_tasks_min() {
-        return nb_tasks_min;
-    }
-
-    public static void setNb_tasks_min(int nb_tasks_min) {
-        Journee.nb_tasks_min = nb_tasks_min;
-    }
-
     public int getEtat_avancement() {
         return etat_avancement;
     }
