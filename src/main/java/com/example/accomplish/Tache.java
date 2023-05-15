@@ -1,17 +1,19 @@
 package com.example.accomplish;
 
+import java.util.Date;
+
 public class Tache {
     private String tache_name;
     private Priorite tache_priorite;
     private boolean ifdeadline;
-    private int deadline;
+    private Date deadline;
     private Categorie tache_categorie;
     private int duree;
     private  boolean tasktype; // decomposable ou non
     private Etat_Realisation tache_etat_realisation;
     private boolean tache_locked=false;
 
-    public Tache(String tache_name, Priorite tache_priorite, boolean ifdeadline, int deadline, Categorie tache_categorie, boolean tasktype, boolean tache_locked) {
+    public Tache(String tache_name, Priorite tache_priorite, boolean ifdeadline, Date deadline, Categorie tache_categorie, boolean tasktype, boolean tache_locked) {
         this.tache_name = tache_name;
         this.tache_priorite = tache_priorite;
         this.ifdeadline = ifdeadline;
@@ -42,10 +44,10 @@ public class Tache {
     public void setIfdeadline(boolean ifdeadline) {
         this.ifdeadline = ifdeadline;
     }
-    public int getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
-    public void setDeadline(int deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
     public Categorie getTache_categorie() {

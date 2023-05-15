@@ -1,24 +1,23 @@
 package com.example.accomplish;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class Planning {
     private String planning_name;
-    private ArrayList<Tache> liste_taches;
-    private ArrayList<Creneau> crenaux_libres;
+    private List<Tache> liste_taches;
+    private List<Creneau> crenaux_libres;
     private Date date_debut;
 
     private String type_planning;//avec periode ou sans periode
 
 
-    public Planning(String planning_name, ArrayList<Tache> liste_taches, ArrayList<Creneau> crenaux_libres, Date date_debut) {
+    public Planning(String planning_name, List<Tache> liste_taches, List<Creneau> crenaux_libres, Date date_debut) {
         this.planning_name = planning_name;
         this.liste_taches = liste_taches;
         this.crenaux_libres = crenaux_libres;
         this.date_debut = date_debut;
     }
-    public ArrayList<Tache> getListe_taches() {
+    public List<Tache> getListe_taches() {
         return liste_taches;
     }
 
@@ -26,7 +25,7 @@ public class Planning {
         this.liste_taches = liste_taches;
     }
 
-    public ArrayList<Creneau> getCrenaux_libres() {
+    public List<Creneau> getCrenaux_libres() {
         return crenaux_libres;
     }
 
@@ -60,6 +59,13 @@ public class Planning {
        }else{
            System.out.println("no such old task");
        }
+    }
+
+    public void trier_tache(){
+            // Sort based on deadline first, then priority
+            Comparator<Tache> comparator = Comparator.comparing(Tache::getDeadline).thenComparing(Tache::getTache_priorite);
+            // Sort the list
+            liste_taches.sort(comparator);
     }
 
 }

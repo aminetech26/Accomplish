@@ -1,4 +1,7 @@
 package com.example.accomplish;
+
+import java.util.Date;
+
 public class Tache_simple extends Tache{
     private Peridicite tache_periodicite;
     public Peridicite getTache_periodicite() {
@@ -8,8 +11,8 @@ public class Tache_simple extends Tache{
         this.tache_periodicite = tache_periodicite;
     }
 
-    public Tache_simple(String tache_name, Priorite tache_priorite, boolean ifdeadline, int deadline, Categorie tache_categorie, boolean tasktype, boolean scheduled, boolean tache_locked, Peridicite tache_periodicite) {
-        super(tache_name, tache_priorite, ifdeadline, deadline, tache_categorie, tasktype, scheduled, tache_locked);
+    public Tache_simple(String tache_name, Priorite tache_priorite, boolean ifdeadline, Date deadline, Categorie tache_categorie, boolean tasktype, boolean tache_locked, Peridicite tache_periodicite) {
+        super(tache_name, tache_priorite, ifdeadline, deadline, tache_categorie, tasktype, tache_locked);
         this.tache_periodicite = tache_periodicite;
     }
 
