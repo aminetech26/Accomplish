@@ -37,6 +37,5 @@ public class Test {
         for (Tache task:taches) {
             System.out.println(task.getTache_name());
         }
-
     }
 }

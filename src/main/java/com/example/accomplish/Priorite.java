@@ -1,7 +1,9 @@
 package com.example.accomplish;
 
 public enum Priorite {
-    LOW,
+    HIGH,
     MEDIUM,
-    HIGH
+    LOW
+
+
 }
