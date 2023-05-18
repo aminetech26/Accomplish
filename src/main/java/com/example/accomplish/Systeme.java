@@ -16,7 +16,7 @@ public class Systeme {
 
     private static int seuil_minimal;
     private static int nb_tache_minimal;
-    private List<Utilisateur> users_list;
+    public static List<Utilisateur> users_list;
 
     public Systeme(List<Utilisateur> users_list) {
         this.users_list = users_list;
@@ -38,17 +38,18 @@ public class Systeme {
         Systeme.nb_tache_minimal = nb_tache_minimal;
     }
 
-    public List<Utilisateur> getUsers_list() {
-        return users_list;
+    public static List<Utilisateur> getUsers_list() throws IOException {
+        return loadUsers();
     }
 
-    public void setUsers_list(List<Utilisateur> users_list) {
-        this.users_list = users_list;
+    public static void setUsers_list(List<Utilisateur> users_list) {
+        Systeme.users_list = users_list;
     }
 
-    public void authentification(Utilisateur user, String action) throws IOException {
-        users_list = loadUsers();
-        if (Objects.equals(action, "login")) {
+
+    public static void authentification(Utilisateur user, String action) throws IOException {
+        setUsers_list(loadUsers());
+        if (action.compareTo("log in") == 0) {
             if (users_list.contains(user)) {
                 System.out.println("successful login");
             } else {

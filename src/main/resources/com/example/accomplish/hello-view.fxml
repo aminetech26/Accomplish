@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.HelloController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.HelloController">
     <padding>
         <Insets bottom="60.0" left="160.0" right="160.0" top="60.0" />
     </padding>
@@ -52,7 +61,7 @@
                     <Insets top="10.0" />
                 </VBox.margin></Label>
 
-            <TextField prefHeight="35.0" prefWidth="150.0" styleClass="custom-text-field" stylesheets="@style.css">
+            <TextField id="username" fx:id="username" prefHeight="35.0" prefWidth="239.0" styleClass="custom-text-field" stylesheets="@style.css">
             <VBox.margin>
                <Insets bottom="10.0" top="3.0" />
             </VBox.margin>
@@ -68,7 +77,7 @@
                 <VBox.margin>
                     <Insets top="10.0" />
                 </VBox.margin></Label>
-            <PasswordField prefHeight="35.0" prefWidth="150.0" styleClass="custom-text-field2" stylesheets="@style.css">
+            <PasswordField id="password" fx:id="password" prefHeight="35.0" prefWidth="150.0" styleClass="custom-text-field2" stylesheets="@style.css">
             <VBox.margin>
                <Insets top="3.0" />
             </VBox.margin>
@@ -84,7 +93,7 @@
                     <Insets bottom="12.0" left="200.0" top="3.0" />
                 </VBox.margin></Label>
 
-            <Button mnemonicParsing="false" onMouseClicked="#GoToFeedPage" prefHeight="35.0" prefWidth="300.0" styleClass="button-style" stylesheets="@style.css" text="Log In" textAlignment="CENTER">
+            <Button fx:id="LogInButton" mnemonicParsing="false" onMouseClicked="#handleSignIn" prefHeight="35.0" prefWidth="300.0" styleClass="button-style" stylesheets="@style.css" text="Log In" textAlignment="CENTER">
             <VBox.margin>
                <Insets left="10.0" top="10.0" />
             </VBox.margin></Button>
@@ -98,7 +107,7 @@
                <Insets left="50.0" top="10.0" />
             </VBox.margin></Label>
 
-                <Label fx:id="Sing_Up" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleLabel1Click" text="Sing Up" textFill="#ffffff">
+                <Label fx:id="Sing_Up" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleLabel1Click" text="Sign Up" textFill="#ffffff">
             <font>
                <Font name="Calisto MT Bold" size="14.0" />
             </font>
