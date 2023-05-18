@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.HelloController">
+
+   <GridPane>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+
+   <VBox alignment="CENTER" prefHeight="625.0" prefWidth="80.0" spacing="25" style="-fx-background-color: #EFFAFF;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+      <effect>
+         <DropShadow color="GRAY" offsetX="1.0" offsetY="0.0" radius="12.0" />
+      </effect>
+
+      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+         <Image url="@images/home.png" />
+            <VBox.margin>
+               <Insets bottom="10.0" top="-25.0" />
+            </VBox.margin>
+      </ImageView>
+
+      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+         <Image url="@images/tasks.png" />
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+      </ImageView>
+
+      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+         <Image url="@images/statistics.png" />
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+      </ImageView>
+
+      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+         <Image url="@images/historique.png" />
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+      </ImageView>
+
+      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+         <Image url="@images/add.png" />
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+      </ImageView>
+
+      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+         <Image url="@images/settings.png" />
+      </ImageView>
+
+   </VBox>
+
+   <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+
+   </VBox>
+
+   <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="0">
+
+   </VBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
+
+   </GridPane>
+</AnchorPane>

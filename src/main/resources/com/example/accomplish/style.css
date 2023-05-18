@@ -1,0 +1,60 @@
+.button-style {
+    -fx-background-color: #9ED592;
+    -fx-border-color: Gray;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+
+    -fx-font-family: 'Open Sans';
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+.button-style:hover {
+    -fx-background-color: transparent;
+    -fx-effect: drop shadow(gaussian, white, 10, 0.5, 0, 0);
+}
+
+.button2-style {
+    -fx-background-color: #9ED592;
+    -fx-border-color: #9ED592;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+
+    -fx-font-family: 'Open Sans';
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+.button2-style:hover {
+    -fx-background-color: orange;
+    -fx-effect: drop shadow(gaussian, white, 50, 0.5, 0, 0);
+}
+
+.text-style{
+    -fx-font-family: 'Open Sans';
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.custom-text-field {
+    -fx-background-color: white;
+    -fx-border-color: Gray;
+    -fx-border-width: 1px;
+    -fx-background-image: url('images/person.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+    -fx-background-size: 20px 20px;
+}
+.custom-text-field2 {
+    -fx-background-color: white;
+    -fx-border-color: Gray;
+    -fx-border-width: 1px;
+    -fx-background-image: url('images/eye.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right center;
+    -fx-background-size: 20px 20px;
+}
