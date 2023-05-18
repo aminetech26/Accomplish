@@ -1,4 +1,4 @@
-package com.example.accomplish;
+package com.accomplish.model;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

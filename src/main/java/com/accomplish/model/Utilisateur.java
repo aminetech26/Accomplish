@@ -1,6 +1,5 @@
-package com.example.accomplish;
+package com.accomplish.model;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Utilisateur {

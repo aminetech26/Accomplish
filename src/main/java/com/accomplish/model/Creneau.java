@@ -1,4 +1,4 @@
-package com.example.accomplish;
+package com.accomplish.model;
 
 public class Creneau {
     private boolean libre=true;

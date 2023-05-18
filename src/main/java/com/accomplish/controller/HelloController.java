@@ -1,4 +1,4 @@
-package com.example.accomplish;
+package com.accomplish.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
