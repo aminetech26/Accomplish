@@ -34,9 +34,6 @@ public class Utilisateur {
         this.username = username;
     }
 
-    public void sinscrire(String username,String password){
-
-    }
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

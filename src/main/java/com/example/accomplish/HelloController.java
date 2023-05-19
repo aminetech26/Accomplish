@@ -72,6 +72,12 @@ public class HelloController {
                 showPopup((Stage) LogInButton.getScene().getWindow(), "No such user ! try sign-up");
             }else{
                 showPopup((Stage) LogInButton.getScene().getWindow(), "Successful login !" + " Welcome " + usernameInputField);
+                Systeme.setCurrentUser(user);
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("projects-page.fxml")));
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             }
         }
     private void showPopup(Stage stage, String message) {

@@ -8,3 +8,8 @@ newtest,netnet
 latest,latest
 new,new
 taki,taki
+testtp,testtp
+testblidi,testblidi
+poo,poo
+testpooo,lavie
+test3,test3

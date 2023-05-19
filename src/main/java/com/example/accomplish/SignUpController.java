@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.EventObject;
 import java.util.Objects;
@@ -48,6 +49,11 @@ public class SignUpController {
             if (!(Systeme.getUsers_list().contains(user))) {
                 Systeme.authentification(user, "sign up");
                 showPopup((Stage) signUpButton.getScene().getWindow(), "Successful sign up");
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             }else{
                 showPopup((Stage) signUpButton.getScene().getWindow(), "User already exists ! try log-in");
             }

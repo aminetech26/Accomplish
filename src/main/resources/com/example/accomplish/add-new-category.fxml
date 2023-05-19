@@ -12,8 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #EFFAFF; -fx-pref-width: 1200; -fx-pref-height: 625;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #EFFAFF; -fx-pref-width: 1200; -fx-pref-height: 625;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.NewCategoryController">
    <children>
       <GridPane layoutX="390.0" layoutY="228.0" prefHeight="169.0" prefWidth="419.0">
         <columnConstraints>
@@ -36,11 +35,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ColorPicker prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #86D6F8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" />
+            <ColorPicker fx:id="colorPicker" prefHeight="25.0" prefWidth="211.0" style="-fx-background-color: #86D6F8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="categoryName" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="600.0" layoutY="515.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="139.0" style="-fx-font-weight: bold; -fx-background-color: #86D6F8;" text="Add category" textFill="WHITE">
+      <Button fx:id="addCategoryButton" layoutX="600.0" layoutY="515.0" mnemonicParsing="false" onMouseClicked="#handleSaveCategory" prefHeight="39.0" prefWidth="139.0" style="-fx-font-weight: bold; -fx-background-color: #86D6F8;" text="Add category" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

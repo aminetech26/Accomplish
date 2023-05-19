@@ -7,7 +7,7 @@ public class Project {
     private String project_name;
     private String project_description;
     private List<Planning> list_planning;
-    private List<Categorie> project_categories;
+    private List<Categorie> project_categories = new ArrayList<Categorie>();
     private double project_avancement; // pourcentage
     private List<Tache> Taches_unscheduled;
     public Project(String project_name, String project_description, List<Categorie> project_categories) {

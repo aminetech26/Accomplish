@@ -17,6 +17,15 @@ public class Systeme {
     private static int seuil_minimal;
     private static int nb_tache_minimal;
     public static List<Utilisateur> users_list;
+    public static Utilisateur currentUser;
+
+    public static Utilisateur getCurrentUser() {
+        return currentUser;
+    }
+
+    public static void setCurrentUser(Utilisateur currentUser) {
+        Systeme.currentUser = currentUser;
+    }
 
     public Systeme(List<Utilisateur> users_list) {
         this.users_list = users_list;
@@ -60,6 +69,8 @@ public class Systeme {
                 System.out.println("User already exist");
             } else {
                 System.out.println("Successful sign up");
+                File directory = new File("AccomplishFiles/" + user.getUsername());
+                directory.mkdirs();
                 users_list.add(user);
                 saveUsers(users_list);
             }
