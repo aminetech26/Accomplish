@@ -58,3 +58,14 @@
     -fx-background-position: right center;
     -fx-background-size: 20px 20px;
 }
+.rounded-button {
+    -fx-background-radius: 20 0 0 20;
+}
+.date-picker-popup > .popup-content > .month-year-pane > .pane > .spinner {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup > .popup-content > .month-year-pane > .pane > .spinner > .increment-arrow-button,
+.date-picker-popup > .popup-content > .month-year-pane > .pane > .spinner > .decrement-arrow-button {
+    -fx-background-color: transparent;
+}
