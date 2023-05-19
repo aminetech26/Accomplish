@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="625.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.FeedPageController">
+<GridPane prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.FeedPageController">
 
     <VBox alignment="CENTER" prefHeight="625.0" prefWidth="80.0" spacing="25" style="-fx-background-color: #EFFAFF;" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <effect>
@@ -61,17 +69,17 @@
 
     </VBox>
 
-    <GridPane GridPane.columnIndex="1">
+    <GridPane style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1">
 
         <HBox alignment="CENTER" GridPane.rowIndex="0">
         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/retour.png" />
             <HBox.margin>
-               <Insets right="100.0" />
+               <Insets left="-125.0" right="200.0" />
             </HBox.margin>
         </ImageView>
 
-        <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+        <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="251.0">
                 <effect>
                     <DropShadow>
                         <color>
@@ -90,9 +98,9 @@
          </GridPane.margin>
         </HBox>
 
-        <ScrollPane fx:id="scrollpane" prefHeight="375.0" prefWidth="1200.0" style="-fx-border-color: #00000000;" stylesheets="@style.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+        <ScrollPane fx:id="scrollpane" prefHeight="375.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" stylesheets="@style.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
 
-                <VBox spacing="10" fx:id="task" >
+                <VBox fx:id="task" spacing="10" style="-fx-background-color: #FFFFFF;">
                     <!-- Row 1 -->
                     <HBox spacing="10" styleClass="scroll-pane" stylesheets="@style.css">
                <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
@@ -190,7 +198,7 @@
 
     </GridPane>
 
-    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1000.0" spacing="25.0" GridPane.columnIndex="2">
+    <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="188.0" spacing="25.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2">
       <padding>
          <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
       </padding>
@@ -199,26 +207,35 @@
             <Label alignment="CENTER" prefHeight="37.0" prefWidth="101.0" text="Welcome">
                 <font>
                     <Font name="System Bold" size="20.0" />
-                </font></Label>
+                </font>
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin></Label>
 
             <Label alignment="CENTER" prefHeight="35.0" prefWidth="101.0" text="username">
                 <font>
                     <Font size="17.0" />
-                </font></Label>
+                </font>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin></Label>
+         <VBox.margin>
+            <Insets right="40.0" />
+         </VBox.margin>
 
         </HBox>
 
         <DatePicker fx:id="datePicker" editable="false" layoutX="937.0" layoutY="180.0" prefHeight="32.0" prefWidth="237.0" showWeekNumbers="true" styleClass="datePicker" stylesheets="@style.css">
          <VBox.margin>
-            <Insets top="50.0" />
+            <Insets right="50.0" top="100.0" />
          </VBox.margin></DatePicker>
 
     </VBox>
 
    <columnConstraints>
       <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
+      <ColumnConstraints maxWidth="851.6666259765625" minWidth="689.6666259765625" prefWidth="851.6666259765625" />
+      <ColumnConstraints maxWidth="460.3333740234375" minWidth="298.3333740234375" prefWidth="298.3333740234375" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
