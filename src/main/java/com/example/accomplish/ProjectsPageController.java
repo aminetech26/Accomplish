@@ -45,4 +45,8 @@ public class ProjectsPageController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void initializeData() {
+
+    }
 }

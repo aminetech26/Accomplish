@@ -69,3 +69,27 @@
 .date-picker-popup > .popup-content > .month-year-pane > .pane > .spinner > .decrement-arrow-button {
     -fx-background-color: transparent;
 }
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+}
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #86D6F8;
+    -fx-background-insets: 0;
+    -fx-background-radius: 50;
+}
+.scroll-pane .scroll-bar:vertical {
+    -fx-padding: 0;
+}
+
+.scroll-pane .scroll-bar:vertical .increment-button,
+.scroll-pane .scroll-bar:vertical .decrement-button,
+.scroll-pane .scroll-bar:vertical .increment-arrow,
+.scroll-pane .scroll-bar:vertical .decrement-arrow,
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
