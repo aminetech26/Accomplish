@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane prefHeight="625.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.SettingFreeTimeSlots">
+
+<VBox alignment="CENTER" prefHeight="625.0" prefWidth="80.0" spacing="25" style="-fx-background-color: #EFFAFF;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <effect>
+        <DropShadow color="GRAY" offsetX="1.0" offsetY="0.0" radius="12.0" />
+    </effect>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GotoHome">
+        <Image url="@images/home.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="-25.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GoToTasksPage">
+        <Image url="@images/tasks.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+        <Image url="@images/statistics.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+        <Image url="@images/historique.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+        <Image url="@images/settings.png" />
+        <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+</VBox>
+
+<GridPane style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1">
+
+    <VBox alignment="CENTER" spacing="20" GridPane.rowIndex="0">
+        <Text fill="#86d6f8" layoutX="349.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Setting free-time slots">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Text>
+
+        <Line endX="27.333343505859375" endY="-7.62939453125E-6" layoutX="500.0" startX="-259.0" stroke="#86d6f8" strokeWidth="3.0" />
+
+
+        <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+        </padding>
+        <GridPane.margin>
+            <Insets bottom="20.0" top="10.0" />
+        </GridPane.margin>
+    </VBox>
+
+    <VBox alignment="CENTER_LEFT" spacing="10" GridPane.rowIndex="1">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="238.0" style="-fx-font-weight: bold;" text="Every day time-slots :">
+            <font>
+                <Font size="19.0" />
+            </font>
+            <VBox.margin>
+               <Insets left="25.0" />
+            </VBox.margin>
+        </Label>
+
+
+        <ScrollPane fx:id="scroller" prefHeight="200.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" stylesheets="@style.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+
+            <VBox fx:id="free_time_slots" spacing="15.0" style="-fx-background-color: #FFFFFF;">
+                <!-- Row 1 -->
+                <HBox alignment="CENTER" styleClass="scroll-pane" stylesheets="@style.css">
+
+                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="125.0" text="Start Hour :">
+                        <font>
+                            <Font size="19.0" />
+                        </font>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                    </Label>
+                    <Spinner initialValue="0" max="23" min="0" prefHeight="40.0" prefWidth="80.0" />
+                    <Spinner initialValue="0" max="59" min="0" prefHeight="40.0" prefWidth="80.0" />
+
+                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="125.0" text="End Hour :">
+                        <font>
+                            <Font size="19.0" />
+                        </font>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                    </Label>
+                    <Spinner initialValue="0" max="23" min="0" prefHeight="40.0" prefWidth="80.0" />
+                    <Spinner initialValue="0" max="59" min="0" prefHeight="40.0" prefWidth="80.0" />
+                    <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+
+                </HBox>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+
+            </VBox>
+            <GridPane.margin>
+                <Insets left="20.0" />
+            </GridPane.margin>
+            <styleClass>
+               <String fx:value="scroll-bar" />
+               <String fx:value="scroll-pane" />
+            </styleClass>
+
+
+        </ScrollPane>
+
+        <Button mnemonicParsing="false" onAction="#Add_time_slot" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold; -fx-background-radius: 10;" text="Add time slot" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <VBox.margin>
+               <Insets left="30.0" top="5.0" />
+            </VBox.margin>
+        </Button>
+
+        <HBox alignment="CENTER_LEFT" spacing="20.0">
+
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-font-weight: bold;" text="Specific time-slots">
+                <font>
+                    <Font size="19.0" />
+                </font>
+                <VBox.margin>
+                    <Insets left="25.0" />
+                </VBox.margin>
+            </Label>
+
+            <Button mnemonicParsing="false" onAction="#GoToSpecifci_time_slot_page" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold; -fx-background-radius: 12;" text="Add time slot" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="15.0" />
+                </font>
+                <VBox.margin>
+                    <Insets left="30.0" top="5.0" />
+                </VBox.margin>
+            </Button>
+            <VBox.margin>
+               <Insets left="50.0" top="15.0" />
+            </VBox.margin>
+            <padding>
+               <Insets bottom="5.0" top="5.0" />
+            </padding>
+
+
+        </HBox>
+
+
+        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Confirm" prefHeight="40.0" prefWidth="175.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold; -fx-background-radius: 12;" text="Confirm" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+            <VBox.margin>
+                <Insets left="300.0" top="30.0" />
+            </VBox.margin>
+        </Button>
+
+
+    </VBox>
+
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+
+</GridPane>
+
+<VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="188.0" spacing="25.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2">
+    <padding>
+        <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
+    </padding>
+
+    <HBox alignment="CENTER" prefHeight="48.0" prefWidth="445.0">
+        <Label alignment="CENTER" prefHeight="37.0" prefWidth="101.0" text="Welcome">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+            <HBox.margin>
+                <Insets left="10.0" />
+            </HBox.margin></Label>
+
+        <Label alignment="CENTER" prefHeight="35.0" prefWidth="101.0" text="username">
+            <font>
+                <Font size="17.0" />
+            </font>
+            <HBox.margin>
+                <Insets />
+            </HBox.margin></Label>
+        <VBox.margin>
+            <Insets right="40.0" />
+        </VBox.margin>
+
+    </HBox>
+
+    <DatePicker fx:id="datePicker" editable="false" layoutX="937.0" layoutY="180.0" prefHeight="32.0" prefWidth="237.0" showWeekNumbers="true" styleClass="datePicker" stylesheets="@style.css">
+        <VBox.margin>
+            <Insets right="50.0" top="100.0" />
+        </VBox.margin></DatePicker>
+
+</VBox>
+
+<columnConstraints>
+    <ColumnConstraints />
+    <ColumnConstraints maxWidth="851.6666259765625" minWidth="689.6666259765625" prefWidth="851.6666259765625" />
+    <ColumnConstraints maxWidth="460.3333740234375" minWidth="298.3333740234375" prefWidth="298.3333740234375" />
+</columnConstraints>
+<rowConstraints>
+    <RowConstraints />
+</rowConstraints>
+
+
+</GridPane>

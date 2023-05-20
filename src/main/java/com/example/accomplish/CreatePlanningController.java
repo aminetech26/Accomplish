@@ -1,4 +1,5 @@
 package com.example.accomplish;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +14,7 @@ import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.time.LocalDate;
@@ -24,6 +26,7 @@ public class CreatePlanningController {
     public DatePicker startDate;
     public RadioButton noRadioButton;
     public RadioButton yesRadioButton;
+
     public void initialize() {
         ToggleGroup toggleGroup = new ToggleGroup();
         noRadioButton.setToggleGroup(toggleGroup);
@@ -48,6 +51,16 @@ public class CreatePlanningController {
                 gridPane.getChildren().removeAll(finalEndDateLabel, secondDatePicker);
             }
         });
+    }
+
+    public void GoTosetting_free_time_slots(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("setting-free-time-slots.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     private class DatePickerCell extends javafx.scene.control.DateCell {
