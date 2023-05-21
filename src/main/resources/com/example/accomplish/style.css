@@ -84,6 +84,9 @@
 .scroll-pane .scroll-bar:vertical {
     -fx-padding: 0;
 }
+.scroll-pane .white-background {
+    -fx-background-color: white;
+}
 
 .scroll-pane .scroll-bar:vertical .increment-button,
 .scroll-pane .scroll-bar:vertical .decrement-button,

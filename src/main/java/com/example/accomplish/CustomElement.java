@@ -1,8 +1,11 @@
 package com.example.accomplish;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.HBox;
@@ -17,7 +20,8 @@ public class CustomElement extends StackPane {
     public CheckBox checkBox;
     private Rectangle rectangle;
     private HBox labelsBox;
-    private EventObject event;
+    private ComboBox<String> comboBox; // Add ComboBox
+
 
 
     public CustomElement() {
@@ -43,28 +47,19 @@ public class CustomElement extends StackPane {
         StackPane.setAlignment(labelsBox, Pos.CENTER);
         StackPane.setMargin(labelsBox, new Insets(35, 0, 0, 125));
 
+        // Create the ComboBox
+        ObservableList<String> options = FXCollections.observableArrayList("", "", "");
+        comboBox = new ComboBox<>(options);
+        //comboBox.setLayoutX(72);
+        //comboBox.setLayoutY(470);
+        StackPane.setMargin(comboBox, new Insets(15, 0, 0, 325));
+        comboBox.setPrefSize(150, 95);
+        comboBox.getStyleClass().add("combobox-task");
+        comboBox.getStylesheets().add("@style.css");
+
         setAlignment(Pos.CENTER);
-        getChildren().addAll(rectangle, checkBox, labelsBox);
+        getChildren().addAll(rectangle,comboBox, checkBox, labelsBox);
     }
-
-            /*private int selectedCheckBoxesCounter = 0;
-
-            public void handleCheckboxActionn(ActionEvent event) {
-                CheckBox checkBox = (CheckBox) event.getSource();
-                boolean isSelected = checkBox.isSelected();
-
-                // Perform the desired actions based on the checkbox selection
-                if (isSelected) {
-                    // Checkbox is selected
-                    selectedCheckBoxesCounter++; // Increment the counter
-                } else {
-                    // Checkbox is deselected
-                    selectedCheckBoxesCounter--; // Decrement the counter
-                }
-
-                System.out.println("Counter: " + selectedCheckBoxesCounter);
-            }
-*/
 
     public void addLabel(String labelText) {
         Label label = new Label(labelText);

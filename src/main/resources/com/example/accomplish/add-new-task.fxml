@@ -14,9 +14,11 @@
          <ImageView fx:id="fermer_popup" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#BackToTasksPage" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/retour.png" />
             <HBox.margin>
-               <Insets left="-125.0" right="200.0" />
+               <Insets left="-200.0" right="250.0" />
             </HBox.margin>
          </ImageView>
+
+         <VBox alignment="CENTER" spacing="5.0">
 
          <Text fill="#86d6f8" layoutX="349.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Add a new task">
             <font>
@@ -24,68 +26,143 @@
             </font>
          </Text>
 
+         <Line endX="27.333343505859375" endY="-7.62939453125E-6" startX="-259.0" stroke="#86d6f8" strokeWidth="3.0" />
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets top="-25.0" />
+         </padding>
+
+         </VBox>
+
+
          <padding>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
          </padding>
          <GridPane.margin>
-            <Insets bottom="20.0" top="10.0" />
+            <Insets bottom="25.0" left="50.0" top="5.0" />
          </GridPane.margin>
       </HBox>
 
 
-      <Pane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <VBox GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
 
-   <Line endX="27.333343505859375" endY="-7.62939453125E-6" layoutX="500.0" startX="-259.0" stroke="#86d6f8" strokeWidth="3.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="350.0" layoutX="284.0" layoutY="139.0" stroke="WHITE" strokeType="INSIDE" width="361.0">
+         <StackPane>
+
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="450.0" stroke="WHITE" strokeType="INSIDE" width="400.0">
       <effect>
          <DropShadow />
       </effect>
    </Rectangle>
-   <Text layoutX="333.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task name :">
+
+            <VBox alignment="CENTER" spacing="15.0">
+
+               <HBox alignment="CENTER" spacing="15.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task name :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField prefHeight="38.0" prefWidth="182.0">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin></TextField>
+               </HBox>
+
+               <HBox alignment="CENTER" spacing="25.0">
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task category :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="category" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
+               </HBox>
+
+               <HBox alignment="CENTER" spacing="25.0">
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task priority :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+
+                  <ComboBox fx:id="priority" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
+               </HBox>
+
+               <HBox alignment="TOP_CENTER" spacing="25.0">
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task deadline :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  <HBox.margin>
+                     <Insets top="10.0" />
+                  </HBox.margin>
+                  </Text>
+
+                  <VBox fx:id="vbox" spacing="10.0">
+
+                     <HBox prefWidth="150.0" spacing="30.0">
+                     <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" text="Yes" />
+                     <RadioButton fx:id="noRadioButton" mnemonicParsing="false" text="No">
+                        <GridPane.margin>
+                           <Insets left="75.0" />
+                        </GridPane.margin>
+                     </RadioButton>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     </HBox>
+                     
+                  <DatePicker fx:id="Date" editable="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
+                  <HBox.margin>
+                     <Insets top="5.0" />
+                  </HBox.margin>
+                  </VBox>
+
+               </HBox>
+
+               <HBox alignment="CENTER" spacing="25.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task type :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+
+                  <ComboBox fx:id="tasktype" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
+               </HBox>
+               <HBox alignment="CENTER" spacing="25.0">
+
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Locked :">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+
+                  <ComboBox fx:id="locked" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
+               </HBox>
+
+
+
+   <Button alignment="CENTER" mnemonicParsing="false" onAction="#AddTask" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8;" text="Add task" textFill="WHITE">
       <font>
          <Font size="15.0" />
       </font>
-   </Text>
-   <Text layoutX="327.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task category :">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Text>
-   <Text layoutX="326.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task priority :">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Text>
-   <Text layoutX="326.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task deadline :">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Text>
-   <Text layoutX="327.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task type :">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Text>
-   <Text layoutX="329.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Locked :">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Text>
-   <TextField layoutX="445.0" layoutY="158.0" prefHeight="38.0" prefWidth="188.0" />
-   <ComboBox layoutX="445.0" layoutY="205.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
-   <ComboBox layoutX="445.0" layoutY="254.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
-   <DatePicker editable="false" layoutX="444.0" layoutY="303.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
-   <ComboBox layoutX="444.0" layoutY="350.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
-   <ComboBox layoutX="444.0" layoutY="395.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
-   <Button layoutX="412.0" layoutY="439.0" mnemonicParsing="false" onAction="#AddTask" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8;" text="Add task" textFill="WHITE">
-      <font>
-         <Font size="15.0" />
-      </font>
+               <VBox.margin>
+                  <Insets bottom="-5.0" top="5.0" />
+               </VBox.margin>
    </Button>
+               
+            </VBox>
+
+         </StackPane>
+
       <padding>
          <Insets bottom="25.0" left="50.0" />
       </padding>
-      </Pane>
+      </VBox>
 
       <columnConstraints>
          <ColumnConstraints />
