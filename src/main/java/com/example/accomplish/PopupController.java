@@ -21,9 +21,7 @@ public class PopupController {
 
     public VBox task;
     public ImageView fermer_popup;
-    
-    
-    
+
     public VBox vbox;
     public RadioButton yesRadioButton;
     public RadioButton noRadioButton;
@@ -85,7 +83,7 @@ public class PopupController {
             e.printStackTrace();
         }*/
     }
-
+/*
     public void AddTask(ActionEvent event) throws IOException {
 
         /*Stage stage = (Stage) fermer_popup.getScene().getWindow();
@@ -95,7 +93,7 @@ public class PopupController {
         Parent root = fxmlLoader.load();
 
         FeedPageController taskspagecontroller = fxmlLoader.getController();
-        taskspagecontroller.AddCustomElement();*/
+        taskspagecontroller.AddCustomElement();
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("pageTasks.fxml"));
@@ -108,7 +106,7 @@ public class PopupController {
         stage.setScene(scene);
         stage.show();
     }
-
+*/
     public void BackToTasksPage(MouseEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pageTasks.fxml")));

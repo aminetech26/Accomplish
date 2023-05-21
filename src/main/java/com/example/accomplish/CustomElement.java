@@ -30,7 +30,7 @@ public class CustomElement extends StackPane {
         CheckBox checkBox = new CheckBox();
         StackPane.setAlignment(checkBox, Pos.CENTER_LEFT);
         StackPane.setMargin(checkBox, new Insets(10, 10, 0, 25));
-        checkBox.setOnAction(FeedPageController.CheckboxHandler::handleCheckboxAction);
+     //   checkBox.setOnAction(FeedPageController.CheckboxHandler::handleCheckboxAction);
 
         // Create the rectangle with black shadow
         rectangle = new Rectangle(500, 75);
