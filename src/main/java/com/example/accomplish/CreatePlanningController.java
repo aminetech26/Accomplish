@@ -29,6 +29,7 @@ public class CreatePlanningController {
     public TextField planningName;
     public RadioButton yesRadioButton;
     public Button setFreeTimeSlots;
+    public Text endDateLabel;
     public DatePicker secondDatePicker;
 
     public void initialize() {
@@ -36,14 +37,16 @@ public class CreatePlanningController {
         noRadioButton.setToggleGroup(toggleGroup);
         yesRadioButton.setToggleGroup(toggleGroup);
         startDate.setDayCellFactory(picker -> new DatePickerCell());
-        Label endDateLabel = new Label("End Date:");
-        endDateLabel = new Label("End Date:");
         endDateLabel.setStyle("-fx-font-size: 15px; -fx-font-weight: bold;");
+        endDateLabel.setVisible(false);
         secondDatePicker.setEditable(false); // Disable manual input
+        secondDatePicker.setVisible(false);
         secondDatePicker.setDisable(true); // Initially disable the secondDatePicker
-        Label finalEndDateLabel = endDateLabel;
+        Text finalEndDateLabel = endDateLabel;
         toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == yesRadioButton) {
+                secondDatePicker.setVisible(true);
+                finalEndDateLabel.setVisible(true);
                 secondDatePicker.setDisable(false); // Enable the secondDatePicker
                 if (!gridPane.getChildren().contains(finalEndDateLabel)) {
                     int rowIndex = gridPane.getRowCount();
@@ -51,6 +54,8 @@ public class CreatePlanningController {
                 }
             } else {
                 secondDatePicker.setDisable(true); // Disable the secondDatePicker
+                secondDatePicker.setVisible(false);
+                finalEndDateLabel.setVisible(false);
                 gridPane.getChildren().removeAll(finalEndDateLabel, secondDatePicker);
             }
         });
