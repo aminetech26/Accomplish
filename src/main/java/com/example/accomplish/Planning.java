@@ -1,17 +1,40 @@
 package com.example.accomplish;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import javafx.util.Pair;
+
+import java.util.*;
 
 public class Planning {
     private String planning_name;
     private List<Tache> liste_taches;
     private List<Creneau> crenaux_libres;
     private Date date_debut;
-
     private String type_planning;//avec periode ou sans periode
+    private Periode periode;
 
+    public void setListe_taches(List<Tache> liste_taches) {
+        this.liste_taches = liste_taches;
+    }
+
+    public void setCrenaux_libres(List<Creneau> crenaux_libres) {
+        this.crenaux_libres = crenaux_libres;
+    }
+
+    public String getType_planning() {
+        return type_planning;
+    }
+
+    public void setType_planning(String type_planning) {
+        this.type_planning = type_planning;
+    }
+
+    public Periode getPeriode() {
+        return periode;
+    }
+
+    public void setPeriode(Periode periode) {
+        this.periode = periode;
+    }
 
     public Planning(String planning_name, List<Tache> liste_taches, List<Creneau> crenaux_libres, Date date_debut) {
         this.planning_name = planning_name;
@@ -23,7 +46,7 @@ public class Planning {
         return liste_taches;
     }
 
-    public void setListe_taches(List<Tache> liste_taches) {
+    public void setListe_taches(ArrayList<Tache> liste_taches) {
         this.liste_taches = liste_taches;
     }
 
@@ -31,7 +54,7 @@ public class Planning {
         return crenaux_libres;
     }
 
-    public void setCrenaux_libres(List<Creneau> crenaux_libres) {
+    public void setCrenaux_libres(ArrayList<Creneau> crenaux_libres) {
         this.crenaux_libres = crenaux_libres;
     }
 
@@ -50,16 +73,60 @@ public class Planning {
     public void setPlanning_name(String planning_name) {
         this.planning_name = planning_name;
     }
+
     public void ajouter_tache(Tache tache){
         liste_taches.add(tache);
     }
     public void modifier_tache(Tache oldtache, Tache newtache){
-        if( liste_taches.contains(oldtache)){
-            int index = liste_taches.indexOf(oldtache);
-            liste_taches.add(index,newtache);
-        }else{
-            System.out.println("no such old task");
+       if( liste_taches.contains(oldtache)){
+          int index = liste_taches.indexOf(oldtache);
+          liste_taches.add(index,newtache);
+       }else{
+           System.out.println("no such old task");
+       }
+    }
+
+    public void trier_tache(){
+            // Sort based on deadline first, then priority
+            Comparator<Tache> comparator = Comparator.comparing(Tache::getDeadline).thenComparing(Tache::getTache_priorite);
+            // Sort the list
+            liste_taches.sort(comparator);
+    }
+    public void plannification_automatique_avec_periode(List<Tache> liste_taches_a_plannifier){
+        for (Tache tache:liste_taches_a_plannifier) {
+            for (Journee journee: periode.getList_journee()) {
+            if (journee.getDate().before(tache.getDeadline())){
+                    if (journee.getCreneau_duree().stream().anyMatch(value -> value == tache.getDuree())){
+                        Pair<Tache,Creneau> pair = new Pair<>(tache,journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
+                        journee.getTache_plannifiee().add(pair);
+                        journee.getCreneau_duree().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                        journee.getToday_creneaus().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                    }else if (Collections.max(journee.getCreneau_duree()) > tache.getDuree()){
+                        Creneau creneau_complet = journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(Collections.max(journee.getCreneau_duree())));
+                        //heure fin et minute fin se calcule selon la duree de la tache -- qui seront heure debut et minutre debut du nouveau crenau
+                        Creneau crenau_tache = new Creneau(creneau_complet.getHeure_debut(),creneau_complet.getMinutes_debut(),creneau_complet.getHeure_fin(),creneau_complet.getMinutes_fin(),tache.getDuree());
+                    }
+
+
+
+
+            }else {
+                Systeme.currentUser.getCurrent_project().getTaches_unscheduled().add(tache);
+            }
+
+
+
+
+
+
+
+
+            }
+
+
+
         }
     }
+
 
 }

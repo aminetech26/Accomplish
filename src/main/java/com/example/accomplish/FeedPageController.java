@@ -39,8 +39,8 @@ public class FeedPageController implements Initializable {
     private DatePicker datePicker;
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        //datePicker.show();
-        //datePicker.setValue(LocalDate.now());
+        datePicker.show();
+        datePicker.setValue(LocalDate.now());
     }
 
     public VBox task; // Remove the @FXML annotation

@@ -25,6 +25,15 @@ public class Utilisateur {
     }
 
     private List<Project> liste_projet;
+    private Project current_project;
+
+    public Project getCurrent_project() {
+        return current_project;
+    }
+
+    public void setCurrent_project(Project current_project) {
+        this.current_project = current_project;
+    }
 
     public String getUsername() {
         return username;

@@ -32,7 +32,6 @@ public class NewProjectController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
     @FXML
     private void handleAddProjectButton(MouseEvent event) throws IOException {

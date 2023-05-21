@@ -1,35 +1,37 @@
 package com.example.accomplish;
 
 public class Creneau {
-    private boolean libre=true;
-    private int creneau_date;
-    private int heure_debut;
-    private int heure_fin;
-    private int duree;
 
-    public Creneau(boolean libre, int creneau_date, int heure_debut, int heure_fin, int duree) {
-        this.libre = libre;
-        this.creneau_date = creneau_date;
+    public Creneau( int heure_debut, int minutes_debut, int heure_fin, int minutes_fin, int duree) {
         this.heure_debut = heure_debut;
+        this.minutes_debut = minutes_debut;
         this.heure_fin = heure_fin;
+        this.minutes_fin = minutes_fin;
         this.duree = duree;
     }
 
-    public boolean isLibre() {
-        return libre;
+    private int heure_debut;
+    private int minutes_debut;
+    private int heure_fin;
+    private int minutes_fin;
+
+    public int getMinutes_debut() {
+        return minutes_debut;
     }
 
-    public void setLibre(boolean libre) {
-        this.libre = libre;
+    public void setMinutes_debut(int minutes_debut) {
+        this.minutes_debut = minutes_debut;
     }
 
-    public int getCreneau_date() {
-        return creneau_date;
+    public int getMinutes_fin() {
+        return minutes_fin;
     }
 
-    public void setCreneau_date(int creneau_date) {
-        this.creneau_date = creneau_date;
+    public void setMinutes_fin(int minutes_fin) {
+        this.minutes_fin = minutes_fin;
     }
+
+    private int duree;
 
     public int getHeure_debut() {
         return heure_debut;
@@ -53,12 +55,5 @@ public class Creneau {
 
     public void setDuree(int duree) {
         this.duree = duree;
-    }
-    public void afficher(){
-        System.out.println("creneau date:"+this.creneau_date);
-        System.out.println("creneau status:"+this.libre);
-        System.out.println("creneau heure-debut :"+this.heure_debut);
-        System.out.println("creneau heure-fin :"+this.heure_fin);
-        System.out.println("creneau duree :"+this.duree);
     }
 }
