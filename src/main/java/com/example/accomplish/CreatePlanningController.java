@@ -89,7 +89,7 @@ public class CreatePlanningController {
             Periode periode = new Periode(secondDatePicker.getValue(),startDate.getValue(),journeyList);
             current_planning.setPeriode(periode);
             current_planning.setType_planning(true);
-            Systeme.getCurrentUser().getCurrent_project().getList_planning().add(current_planning);
+            Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().add(current_planning);
         }else if (noRadioButton.isSelected()){
             current_planning.setType_planning(false);
         }

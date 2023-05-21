@@ -97,7 +97,7 @@ public class Planning {
                         Creneau crenau_tache = new Creneau(creneau_complet.getHeure_debut(),creneau_complet.getMinutes_debut(),creneau_complet.getHeure_fin(),creneau_complet.getMinutes_fin(),tache.getDuree());
                     }
             }else {
-                Systeme.currentUser.getCurrent_project().getTaches_unscheduled().add(tache);
+                Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getTaches_unscheduled().add(tache);
             }
 
 
