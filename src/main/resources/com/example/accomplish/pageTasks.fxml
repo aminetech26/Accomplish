@@ -20,21 +20,28 @@
         <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GotoHome">
             <Image url="@images/home.png" />
             <VBox.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="-25.0" />
+                <Insets bottom="10.0" left="25.0" right="25.0" top="-25.0" />
             </VBox.margin>
         </ImageView>
 
         <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GoToTasksPage">
             <Image url="@images/tasks.png" />
             <VBox.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" />
+                <Insets left="10.0" right="10.0" />
             </VBox.margin>
         </ImageView>
+        <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+        <VBox.margin>
+            <Insets top="-20.0" />
+        </VBox.margin>
+        <Image url="@images/menu_indicator.png" />
+    </ImageView>
+
 
         <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
             <Image url="@images/statistics.png" />
             <VBox.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" />
+                <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
             </VBox.margin>
         </ImageView>
 
@@ -52,7 +59,7 @@
             </VBox.margin>
         </ImageView>
 
-        <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+        <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GoToSettings">
             <Image url="@images/settings.png" />
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
@@ -64,14 +71,15 @@
     <GridPane style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1">
 
         <HBox alignment="CENTER" GridPane.rowIndex="0">
-        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#GotoHome" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/retour.png" />
             <HBox.margin>
                <Insets left="-125.0" right="200.0" />
             </HBox.margin>
         </ImageView>
 
-        <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="251.0">
+            <StackPane>
+        <Rectangle fx:id="rectanglee" arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="275.0">
                 <effect>
                     <DropShadow>
                         <color>
@@ -81,6 +89,12 @@
                 </effect>
             </Rectangle>
 
+                <HBox alignment="CENTER">
+                <Label alignment="CENTER" prefHeight="32.0" prefWidth="150.0" style="-fx-font-weight: bold;" text="Remaining Tasks : " />
+                <Label alignment="CENTER" prefHeight="30.0" prefWidth="25.0" style="-fx-font-weight: bold;" text="4" textFill="#86d6f8" />
+                </HBox>
+
+            </StackPane>
 
             <padding>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
@@ -94,8 +108,8 @@
 
                 <VBox fx:id="task" spacing="10" style="-fx-background-color: #FFFFFF;">
                     <!-- Row 1 -->
-                    <HBox spacing="10" styleClass="scroll-pane" stylesheets="@style.css">
-               <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
+                    <!--<HBox spacing="10" styleClass="scroll-pane" stylesheets="@style.css">
+               <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCheckboxAction">
                   <HBox.margin>
                      <Insets left="25.0" top="35.0" />
                   </HBox.margin>
@@ -112,20 +126,7 @@
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </HBox.margin>
                         </Rectangle>
-                    </HBox>
-
-                    <!-- Row 1 -->
-                    <HBox spacing="10" />
-
-                    <!-- Row 2 -->
-                    <HBox spacing="10" />
-
-                    <!-- Row 3 -->
-                    <HBox spacing="10" />
-
-                    <!-- Row 4 -->
-                    <HBox spacing="10" />
-                    <!-- Add more rows as needed -->
+                    </HBox>-->
                 </VBox>
          <GridPane.margin>
             <Insets left="20.0" />
@@ -156,22 +157,22 @@
                 </font>
             </Label>
 
-            <Label layoutX="205.0" layoutY="78.0" prefHeight="82.0" prefWidth="146.0" style="-fx-font-weight: bold;" text="Manual planification">
+            <Button fx:id="Manual_Planning" layoutX="205.0" layoutY="78.0" onAction="#GoToManualPlanning" prefHeight="82.0" prefWidth="207.0" style="-fx-font-weight: bold;" text="Manual planification">
                 <font>
                     <Font size="15.0" />
                 </font>
             <HBox.margin>
                <Insets left="25.0" />
             </HBox.margin>
-            </Label>
-            <Label layoutX="205.0" layoutY="78.0" prefHeight="83.0" prefWidth="167.0" style="-fx-font-weight: bold;" text="Automatic planification">
+            </Button>
+            <Button id="Auto_Planning" layoutX="205.0" layoutY="78.0" prefHeight="83.0" prefWidth="211.0" style="-fx-font-weight: bold;" text="Automatic planification">
                 <font>
                     <Font size="15.0" />
                 </font>
             <HBox.margin>
                <Insets left="10.0" />
             </HBox.margin>
-            </Label>
+            </Button>
 
          <GridPane.margin>
             <Insets left="20.0" right="20.0" top="20.0" />

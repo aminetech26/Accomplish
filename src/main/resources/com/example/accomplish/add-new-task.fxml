@@ -8,61 +8,10 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="625.0" prefWidth="1200.0" style="-fx-pref-width: 1200; -fx-pref-height: 625; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.AddNewTaskController">
-
-   <VBox alignment="CENTER" prefHeight="625.0" prefWidth="80.0" spacing="25" style="-fx-background-color: #EFFAFF;" GridPane.columnIndex="0" GridPane.rowIndex="0">
-      <effect>
-         <DropShadow color="GRAY" offsetX="1.0" offsetY="0.0" radius="12.0" />
-      </effect>
-
-      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GotoHome">
-         <Image url="@images/home.png" />
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="-25.0" />
-         </VBox.margin>
-      </ImageView>
-
-      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GoToTasksPage">
-         <Image url="@images/tasks.png" />
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" />
-         </VBox.margin>
-      </ImageView>
-
-      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
-         <Image url="@images/statistics.png" />
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" />
-         </VBox.margin>
-      </ImageView>
-
-      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
-         <Image url="@images/historique.png" />
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" />
-         </VBox.margin>
-      </ImageView>
-
-      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
-         <Image url="@images/add.png" />
-         <VBox.margin>
-            <Insets left="10.0" right="10.0" top="20.0" />
-         </VBox.margin>
-      </ImageView>
-
-      <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
-         <Image url="@images/settings.png" />
-         <VBox.margin>
-            <Insets left="10.0" right="10.0" />
-         </VBox.margin>
-      </ImageView>
-
-   </VBox>
-
-   <GridPane alignment="CENTER" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1">
+<GridPane alignment="CENTER" prefHeight="625.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.PopupController">
 
       <HBox alignment="CENTER" GridPane.rowIndex="0">
-         <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#BackToTasksPage" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="fermer_popup" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#BackToTasksPage" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/retour.png" />
             <HBox.margin>
                <Insets left="-125.0" right="200.0" />
@@ -87,7 +36,7 @@
       <Pane GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
 
    <Line endX="27.333343505859375" endY="-7.62939453125E-6" layoutX="500.0" startX="-259.0" stroke="#86d6f8" strokeWidth="3.0" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="329.0" layoutX="284.0" layoutY="139.0" stroke="WHITE" strokeType="INSIDE" width="361.0">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="350.0" layoutX="284.0" layoutY="139.0" stroke="WHITE" strokeType="INSIDE" width="361.0">
       <effect>
          <DropShadow />
       </effect>
@@ -128,14 +77,14 @@
    <DatePicker editable="false" layoutX="444.0" layoutY="303.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
    <ComboBox layoutX="444.0" layoutY="350.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
    <ComboBox layoutX="444.0" layoutY="395.0" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
-   <Button layoutX="412.0" layoutY="452.0" mnemonicParsing="false" onAction="#AddTask" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8;" text="Add task" textFill="WHITE">
+   <Button layoutX="412.0" layoutY="439.0" mnemonicParsing="false" onAction="#AddTask" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8;" text="Add task" textFill="WHITE">
       <font>
          <Font size="15.0" />
       </font>
    </Button>
-         <padding>
-            <Insets bottom="25.0" />
-         </padding>
+      <padding>
+         <Insets bottom="25.0" left="50.0" />
+      </padding>
       </Pane>
 
       <columnConstraints>
@@ -147,56 +96,3 @@
       </rowConstraints>
 
    </GridPane>
-
-
-   <Pane prefHeight="625.0" prefWidth="188.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2">
-      <padding>
-         <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
-      </padding>
-
-      <HBox alignment="CENTER" layoutX="41.0" layoutY="14.0" prefHeight="48.0" prefWidth="215.0">
-         <Label alignment="CENTER" prefHeight="37.0" prefWidth="101.0" text="Welcome">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-            <HBox.margin>
-               <Insets left="10.0" />
-            </HBox.margin></Label>
-
-         <Label alignment="CENTER" prefHeight="35.0" prefWidth="101.0" text="username">
-            <font>
-               <Font size="17.0" />
-            </font>
-            <HBox.margin>
-               <Insets />
-            </HBox.margin></Label>
-         <VBox.margin>
-            <Insets right="40.0" />
-         </VBox.margin>
-
-      </HBox>
-<Line endX="-100.0" endY="624.0" layoutX="100.0" startX="-100.0" stroke="#00000080">
-   <effect>
-      <DropShadow />
-   </effect>
-</Line>
-
-   </Pane>
-
-   <DatePicker fx:id="datePicker" editable="false" prefHeight="32.0" prefWidth="256.0" showWeekNumbers="true" styleClass="datePicker" stylesheets="@style.css" GridPane.columnIndex="3" />
-
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-
-
-
-
-
-</GridPane>

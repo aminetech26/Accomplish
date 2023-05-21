@@ -26,27 +26,6 @@ import java.util.Objects;
 public class AddNewTaskController {
 
     @FXML
-    private void GoToTasksPage(MouseEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pageTasks.fxml")));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    @FXML
-    public void GotoHome(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Feed_Page.fxml")));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-    @FXML
     public ScrollPane scrollpane;
     @FXML
     private VBox task;
