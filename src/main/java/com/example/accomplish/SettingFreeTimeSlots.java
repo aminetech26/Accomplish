@@ -60,6 +60,7 @@ public class SettingFreeTimeSlots {
         stage.setScene(scene);
         stage.show();
 
+
     }
 
     public void Confirm(ActionEvent event) throws IOException {

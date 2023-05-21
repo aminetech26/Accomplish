@@ -160,7 +160,7 @@
                </ImageView>
       
       
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Confirm" prefHeight="40.0" prefWidth="175.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold; -fx-background-radius: 12;" text="Confirm" textFill="WHITE">
+                  <Button fx:id="confirmSpecificTimeSlots" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Confirm" prefHeight="40.0" prefWidth="175.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold; -fx-background-radius: 12;" text="Confirm" textFill="WHITE">
                       <font>
                           <Font name="System Bold" size="17.0" />
                       </font>

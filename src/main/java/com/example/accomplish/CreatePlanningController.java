@@ -61,18 +61,9 @@ public class CreatePlanningController {
         });
     }
 
-    public void GoTosetting_free_time_slots(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("setting-free-time-slots.fxml")));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
 
     public void handlesetFreeTimeSlotsButton(ActionEvent event) throws IOException {
-
+        Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
         Planning current_planning = new Planning();
         current_planning.setPlanning_name(planningName.getText());
         current_planning.setDate_debut(startDate.getValue());
@@ -89,10 +80,17 @@ public class CreatePlanningController {
             Periode periode = new Periode(secondDatePicker.getValue(),startDate.getValue(),journeyList);
             current_planning.setPeriode(periode);
             current_planning.setType_planning(true);
-            Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().add(current_planning);
         }else if (noRadioButton.isSelected()){
             current_planning.setType_planning(false);
         }
+        List<Planning> planningList =  Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning();
+        planningList.add(current_planning);
+        Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).setList_planning(planningList);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("setting-free-time-slots.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     private class DatePickerCell extends javafx.scene.control.DateCell {
         @Override

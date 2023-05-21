@@ -8,37 +8,51 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Spinner;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Objects;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 public class SpecificTimeSlots implements Initializable {
-
+    public Button confirmSpecificTimeSlots;
     @FXML
     private ChoiceBox<String> Select_the_day;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Create a list of values
-        List<String> values = List.of("Value 1", "Value 2", "Value 3", "Value 4");
-
+        List<Journee> journeeList = new ArrayList<Journee>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        Project current_project =  Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
+        Planning planning = current_project.getList_planning().get(current_project.getList_planning().size()-1);
+        journeeList = planning.getPeriode().getList_journee();
+        List<String> values = new ArrayList<String>();
+        for (Journee journee:journeeList) {
+            values.add(journee.getDate().format(formatter));
+        }
         // Set the values of the ChoiceBox
         Select_the_day.setItems(FXCollections.observableArrayList(values));
     }
-
+private void showPopup(Stage stage, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("sign up");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(stage);
+        alert.showAndWait();
+        }
     @FXML
     public void GotoHome(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Feed_Page.fxml")));
@@ -60,13 +74,8 @@ public class SpecificTimeSlots implements Initializable {
     }
 
     public void Confirm(ActionEvent event)throws IOException {
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Feed_Page.fxml")));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Project current_project =  Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
+        showPopup((Stage) confirmSpecificTimeSlots.getScene().getWindow(), current_project.getProject_name()+" size of list planning : "+ String.valueOf(current_project.getList_planning().size()));
     }
 
     public class CustomElement_SpecificTimeSlot extends HBox {

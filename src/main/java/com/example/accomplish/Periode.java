@@ -11,7 +11,7 @@ import java.util.Locale;
 public class Periode {
     private LocalDate date_fin;
     private LocalDate date_debut;
-    private List<Journee> list_journee;
+    private List<Journee> list_journee = new ArrayList<Journee>();
 
     public LocalDate getDate_fin() {
         return date_fin;
