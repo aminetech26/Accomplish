@@ -10,6 +10,7 @@ import javafx.scene.control.skin.DatePickerSkin;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
@@ -25,7 +26,10 @@ public class CreatePlanningController {
     public GridPane gridPane;
     public DatePicker startDate;
     public RadioButton noRadioButton;
+    public TextField planningName;
     public RadioButton yesRadioButton;
+    public Button setFreeTimeSlots;
+    public DatePicker secondDatePicker;
 
     public void initialize() {
         ToggleGroup toggleGroup = new ToggleGroup();
@@ -35,7 +39,6 @@ public class CreatePlanningController {
         Label endDateLabel = new Label("End Date:");
         endDateLabel = new Label("End Date:");
         endDateLabel.setStyle("-fx-font-size: 15px; -fx-font-weight: bold;");
-        DatePicker secondDatePicker = new DatePicker();
         secondDatePicker.setEditable(false); // Disable manual input
         secondDatePicker.setDisable(true); // Initially disable the secondDatePicker
         Label finalEndDateLabel = endDateLabel;
@@ -63,6 +66,29 @@ public class CreatePlanningController {
 
     }
 
+    public void handlesetFreeTimeSlotsButton(ActionEvent event) throws IOException {
+
+        Planning current_planning = new Planning();
+        current_planning.setPlanning_name(planningName.getText());
+        current_planning.setDate_debut(startDate.getValue());
+        if(yesRadioButton.isSelected()){
+            List<Journee> journeyList = new ArrayList<>();
+            LocalDate currentDate = startDate.getValue();
+            while (!currentDate.isAfter(secondDatePicker.getValue())) {
+                Journee jour = new Journee();
+                jour.setDate(currentDate);
+                journeyList.add(jour);
+                // Move to the next date
+                currentDate = currentDate.plusDays(1);
+            }
+            Periode periode = new Periode(secondDatePicker.getValue(),startDate.getValue(),journeyList);
+            current_planning.setPeriode(periode);
+            current_planning.setType_planning(true);
+            Systeme.getCurrentUser().getCurrent_project().getList_planning().add(current_planning);
+        }else if (noRadioButton.isSelected()){
+            current_planning.setType_planning(false);
+        }
+    }
     private class DatePickerCell extends javafx.scene.control.DateCell {
         @Override
         public void updateItem(LocalDate item, boolean empty) {

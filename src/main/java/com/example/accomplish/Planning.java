@@ -2,29 +2,26 @@ package com.example.accomplish;
 
 import javafx.util.Pair;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Planning {
     private String planning_name;
-    private List<Tache> liste_taches;
-    private List<Creneau> crenaux_libres;
-    private Date date_debut;
-    private String type_planning;//avec periode ou sans periode
+    private List<Tache> liste_taches = new ArrayList<Tache>();
+    private LocalDate date_debut;
+    private boolean type_planning;//avec periode true ou sans periode false
     private Periode periode;
 
     public void setListe_taches(List<Tache> liste_taches) {
         this.liste_taches = liste_taches;
     }
 
-    public void setCrenaux_libres(List<Creneau> crenaux_libres) {
-        this.crenaux_libres = crenaux_libres;
-    }
 
-    public String getType_planning() {
+    public boolean getType_planning() {
         return type_planning;
     }
 
-    public void setType_planning(String type_planning) {
+    public void setType_planning(boolean type_planning) {
         this.type_planning = type_planning;
     }
 
@@ -35,11 +32,13 @@ public class Planning {
     public void setPeriode(Periode periode) {
         this.periode = periode;
     }
+    public Planning(){
 
-    public Planning(String planning_name, List<Tache> liste_taches, List<Creneau> crenaux_libres, Date date_debut) {
+    }
+
+    public Planning(String planning_name, List<Tache> liste_taches, LocalDate date_debut) {
         this.planning_name = planning_name;
         this.liste_taches = liste_taches;
-        this.crenaux_libres = crenaux_libres;
         this.date_debut = date_debut;
     }
     public List<Tache> getListe_taches() {
@@ -49,20 +48,11 @@ public class Planning {
     public void setListe_taches(ArrayList<Tache> liste_taches) {
         this.liste_taches = liste_taches;
     }
-
-    public List<Creneau> getCrenaux_libres() {
-        return crenaux_libres;
-    }
-
-    public void setCrenaux_libres(ArrayList<Creneau> crenaux_libres) {
-        this.crenaux_libres = crenaux_libres;
-    }
-
-    public Date getDate_debut() {
+    public LocalDate getDate_debut() {
         return date_debut;
     }
 
-    public void setDate_debut(Date date_debut) {
+    public void setDate_debut(LocalDate date_debut) {
         this.date_debut = date_debut;
     }
 
@@ -95,7 +85,7 @@ public class Planning {
     public void plannification_automatique_avec_periode(List<Tache> liste_taches_a_plannifier){
         for (Tache tache:liste_taches_a_plannifier) {
             for (Journee journee: periode.getList_journee()) {
-            if (journee.getDate().before(tache.getDeadline())){
+            if (journee.getDate().isBefore(tache.getDeadline())){
                     if (journee.getCreneau_duree().stream().anyMatch(value -> value == tache.getDuree())){
                         Pair<Tache,Creneau> pair = new Pair<>(tache,journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
                         journee.getTache_plannifiee().add(pair);
@@ -106,10 +96,6 @@ public class Planning {
                         //heure fin et minute fin se calcule selon la duree de la tache -- qui seront heure debut et minutre debut du nouveau crenau
                         Creneau crenau_tache = new Creneau(creneau_complet.getHeure_debut(),creneau_complet.getMinutes_debut(),creneau_complet.getHeure_fin(),creneau_complet.getMinutes_fin(),tache.getDuree());
                     }
-
-
-
-
             }else {
                 Systeme.currentUser.getCurrent_project().getTaches_unscheduled().add(tache);
             }

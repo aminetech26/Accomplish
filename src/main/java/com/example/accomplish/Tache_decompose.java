@@ -1,12 +1,14 @@
 package com.example.accomplish;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class Tache_decompose extends Tache{
     private ArrayList<Tache_simple> list_taches;
     private int taux_etat_realisation;
 
-    public Tache_decompose(String tache_name, Priorite tache_priorite, boolean ifdeadline, Date deadline, Categorie tache_categorie, boolean tasktype, boolean tache_locked, ArrayList<Tache_simple> list_taches) {
+    public Tache_decompose(String tache_name, Priorite tache_priorite, boolean ifdeadline, LocalDate deadline, Categorie tache_categorie, boolean tasktype, boolean tache_locked, ArrayList<Tache_simple> list_taches) {
         super(tache_name, tache_priorite, ifdeadline, deadline, tache_categorie, tasktype, tache_locked);
         this.list_taches = list_taches;
     }

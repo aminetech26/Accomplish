@@ -2,9 +2,11 @@ package com.example.accomplish;
 
 import javafx.util.Pair;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Journee {
     private List<Creneau> today_creneaus = new ArrayList<Creneau>();
@@ -23,13 +25,17 @@ public class Journee {
     private int nb_tasks_accomplished;
     private int etat_avancement;
 
-    private Date date;
+    public Journee(){
 
-    public Date getDate() {
+    }
+
+    private LocalDate date;
+
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

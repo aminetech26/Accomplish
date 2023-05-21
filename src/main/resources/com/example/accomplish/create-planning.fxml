@@ -52,12 +52,12 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField GridPane.columnIndex="1" />
+            <TextField fx:id="planningName" GridPane.columnIndex="1" />
             <DatePicker fx:id="startDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Line endX="100.0" layoutX="612.0" layoutY="85.0" startX="-100.0" stroke="#86d6f8" strokeWidth="3.0" />
-      <Button layoutX="520.0" layoutY="509.0" mnemonicParsing="false" onAction="#GoTosetting_free_time_slots" prefHeight="40.0" prefWidth="184.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold; -fx-background-radius: 15;" text="Set free-time slots" textFill="WHITE">
+      <Button fx:id="setFreeTimeSlots" layoutX="520.0" layoutY="509.0" mnemonicParsing="false" onAction="#GoTosetting_free_time_slots" prefHeight="40.0" prefWidth="184.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold; -fx-background-radius: 15;" text="Set free-time slots" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

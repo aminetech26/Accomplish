@@ -7,17 +7,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class Settings {
+public class SettingsController {
 
     @FXML
     private ComboBox<String> languages;
-
+    public TextField minimum_threshold;
+    public TextField min_nb_tasks;
     public void initialize() {
         languages.getItems().addAll("English", "French", "Arabic");
     }
@@ -43,8 +46,11 @@ public class Settings {
     }
 
     public void Save_settings(ActionEvent event) throws IOException {
-
-        
-
+        if (minimum_threshold.getLength()!=0) {
+            Systeme.setSeuil_minimal(Integer.parseInt(minimum_threshold.getText()));
+        }
+        if (min_nb_tasks.getLength()!=0) {
+            Systeme.setNb_tache_minimal(Integer.parseInt(min_nb_tasks.getText()));
+        }
     }
 }

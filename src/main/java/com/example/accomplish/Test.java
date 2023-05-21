@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Test {
+    /*
     public static void main(String[] args) throws IOException {
         Utilisateur user1 = new Utilisateur("aminetech26","Amine2003");
         Utilisateur user2 = new Utilisateur("test","test2023");
@@ -31,11 +32,13 @@ public class Test {
         taches.add(task3);
         taches.add(task4);
         List<Creneau> cren = new ArrayList<Creneau>();
-        Planning plan = new Planning("plan_test",taches,cren,date_debut);
-        plan.trier_tache();
+        //Planning plan = new Planning("plan_test",taches,cren,date_debut);
+        //plan.trier_tache();
         //ENTERTAINMENT,POO,REV,INTEFRACE
         for (Tache task:taches) {
             System.out.println(task.getTache_name());
         }
     }
+    */
+
 }

@@ -1,15 +1,16 @@
 package com.example.accomplish;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Project {
     private String project_name;
     private String project_description;
-    //private ArrayList<planning> list_planning;
-    private ArrayList<Categorie> project_categories;
+    private List<Planning> list_planning = new ArrayList<Planning>();
+    private List<Categorie> project_categories = new ArrayList<Categorie>();
     private int project_avancement; // pourcentage
     private ArrayList<Tache> Taches_unscheduled;
-    public Project(String project_name, String project_description, ArrayList<Categorie> project_categories) {
+    public Project(String project_name, String project_description, List<Categorie> project_categories) {
         this.project_name = project_name;
         this.project_description = project_description;
         this.project_categories = project_categories;
@@ -28,13 +29,13 @@ public class Project {
     public void setProject_description(String project_description) {
         this.project_description = project_description;
     }
-   /* public ArrayList<planning> getList_planning() {
+    public List<Planning> getList_planning() {
         return list_planning;
     }
-    public void setList_planning(ArrayList<planning> list_planning) {
+    public void setList_planning(List<Planning> list_planning) {
         this.list_planning = list_planning;
-    }*/
-    public ArrayList<Categorie> getProject_categories() {
+    }
+    public List<Categorie> getProject_categories() {
         return project_categories;
     }
 
