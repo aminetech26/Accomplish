@@ -13,8 +13,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import java.util.EventObject;
-
 public class CustomElement extends StackPane {
 
     public CheckBox checkBox;
@@ -30,8 +28,8 @@ public class CustomElement extends StackPane {
         CheckBox checkBox = new CheckBox();
         StackPane.setAlignment(checkBox, Pos.CENTER_LEFT);
         StackPane.setMargin(checkBox, new Insets(10, 10, 0, 25));
-     //   checkBox.setOnAction(FeedPageController.CheckboxHandler::handleCheckboxAction);
 
+        checkBox.setOnAction(AddNewTaskController.CheckboxHandler::handleCheckboxAction);
         // Create the rectangle with black shadow
         rectangle = new Rectangle(500, 75);
         rectangle.setFill(Color.WHITE);
@@ -48,12 +46,10 @@ public class CustomElement extends StackPane {
         StackPane.setMargin(labelsBox, new Insets(35, 0, 0, 125));
 
         // Create the ComboBox
-        ObservableList<String> options = FXCollections.observableArrayList("", "", "");
+        ObservableList<String> options = FXCollections.observableArrayList("NOT REALIZED","COMPLETED","IN PROGRESS","CANCELLED","DELAYED");
         comboBox = new ComboBox<>(options);
-        //comboBox.setLayoutX(72);
-        //comboBox.setLayoutY(470);
-        StackPane.setMargin(comboBox, new Insets(15, 0, 0, 325));
-        comboBox.setPrefSize(150, 95);
+        StackPane.setMargin(comboBox, new Insets(15, 0, 0, 50));
+        comboBox.setPrefSize(150, 50);
         comboBox.getStyleClass().add("combobox-task");
         comboBox.getStylesheets().add("@style.css");
 

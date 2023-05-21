@@ -31,35 +31,32 @@ public class FeedPageController implements Initializable {
 
     @FXML
     public ScrollPane scrollpane;
-    @FXML
-    public static Button Auto_Planning ;
-    @FXML
-    public static Button Manual_Planning ;
-
     public Label signedInAsText;
     public Text planningName;
     public Text periodLabel;
     public Text countdown;
     @FXML
     private DatePicker datePicker;
+
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         //datePicker.show();
-        signedInAsText.setText("Signed in as : "+Systeme.getCurrentUser().getUsername());
-        planningName.setText("Planning Name : "+Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getPlanning_name());
-        if(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getType_planning()){
-            LocalDate startDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getDate_debut();
-            LocalDate endDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getDate_fin();
-            periodLabel.setText("Period : "+startDate.toString()+" TO "+endDate.toString());
-        }else {
-            LocalDate startDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getDate_debut();
-            periodLabel.setText("Start date : "+startDate.toString());
+        signedInAsText.setText("Signed in as : " + Systeme.getCurrentUser().getUsername());
+        planningName.setText("Planning Name : " + Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getPlanning_name());
+        if (Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getType_planning()) {
+            LocalDate startDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getPeriode().getDate_debut();
+            LocalDate endDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getPeriode().getDate_fin();
+            periodLabel.setText("Period : " + startDate.toString() + " TO " + endDate.toString());
+        } else {
+            LocalDate startDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getDate_debut();
+            periodLabel.setText("Start date : " + startDate.toString());
+            datePicker.show();
+            datePicker.setValue(LocalDate.now());
         }
-        datePicker.setValue(LocalDate.now());
-
     }
+
     @FXML
-    public void GotoHome(MouseEvent event) throws IOException {
+    public void GotoHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Feed_Page.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -68,21 +65,23 @@ public class FeedPageController implements Initializable {
     }
 
     @FXML
-    private void GoToTasksPage(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pageTasks.fxml")));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void GoToSettings(MouseEvent event) throws IOException {
+    public void GoToSettings (MouseEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("settings.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    private void GoToTasksPage(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pageTasks.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 
