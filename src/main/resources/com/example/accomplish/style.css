@@ -147,6 +147,7 @@
 .combobox-task{
     -fx-background-color: #EFFAFF;
     -fx-background-radius: 15 0 0 15;
+    -fx-padding: 0;
 }
 
 .table-cell {

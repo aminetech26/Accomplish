@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -23,6 +20,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -33,6 +31,7 @@ public class TaskPageController implements Initializable {
     public Button Manual_Planning;
     public Button automatic_plannification;
     public ScrollPane scrollpane;
+    public DatePicker datePicker;
 
     public class CheckBoxHandler {
         private static int selectedCheckBoxesCounter = 0;
@@ -87,6 +86,10 @@ public class TaskPageController implements Initializable {
         vbox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, null)));
 
         }
+
+        datePicker.setValue(LocalDate.now());
+        datePicker.show();
+
     }
     public void GotoHome (MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Feed_Page.fxml")));

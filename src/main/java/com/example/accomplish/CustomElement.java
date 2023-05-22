@@ -14,6 +14,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 public class CustomElement extends StackPane {
 
@@ -61,7 +65,7 @@ public class CustomElement extends StackPane {
         StackPane.setMargin(checkBox, new Insets(10, 10, 0, 25));
         checkBox.setOnAction(TaskPageController.CheckBoxHandler::handleCheckboxAction);
         // Create the rectangle with black shadow
-        rectangle = new Rectangle(500, 75);
+        rectangle = new Rectangle(625, 75);
         rectangle.setFill(Color.WHITE);
         rectangle.setStroke(Color.WHITE);
         rectangle.setArcWidth(40);
@@ -72,21 +76,35 @@ public class CustomElement extends StackPane {
 
         // Create the labels box
         labelsBox = new HBox(10);
-        StackPane.setAlignment(labelsBox, Pos.CENTER);
-        StackPane.setMargin(labelsBox, new Insets(35, 0, 0, 125));
+        StackPane.setAlignment(labelsBox, Pos.CENTER_LEFT);
+        StackPane.setMargin(labelsBox, new Insets(35, 0, 0, 450));
         // Create the ComboBox
         ObservableList<String> options = FXCollections.observableArrayList(
                 "NOT REALIZED", "COMPLETED", "IN PROGRESS", "CANCELLED", "DELAYED");
         comboBox = new ComboBox<>(options);
+        comboBox.setEditable(false);
+        comboBox.setDisable(false);
         comboBox.setPromptText("Select status"); // Optional: Display a prompt text
         comboBox.setValue("NOT REALIZED"); // Optional: Set a default value
-        StackPane.setMargin(comboBox, new Insets(15, 0, 0, 50));
-        comboBox.setPrefSize(150, 50);
+        StackPane.setAlignment(comboBox, Pos.CENTER_LEFT);
+        StackPane.setMargin(comboBox, new Insets(15, 0, 0, 75));
+        comboBox.setPrefSize(175, 75);
         comboBox.getStyleClass().add("combobox-task");
         comboBox.getStylesheets().add("@style.css");
 
         setAlignment(Pos.CENTER);
         getChildren().addAll(rectangle,comboBox, checkBox, labelsBox);
+
+        // Add the Text element
+        Text text = new Text("Start From :");
+        text.setStrokeType(StrokeType.OUTSIDE);
+        text.setStrokeWidth(0.0);
+        text.setTextAlignment(TextAlignment.CENTER);
+        Font font = new Font("Segoe UI Semilight", 17.0);
+        text.setFont(font);
+        StackPane.setAlignment(text, Pos.CENTER_LEFT);
+        StackPane.setMargin(text, new Insets(0, 0, 0, 275));
+        getChildren().add(text);
     }
     public void addLabel(String labelText) {
         Label label = new Label(labelText);

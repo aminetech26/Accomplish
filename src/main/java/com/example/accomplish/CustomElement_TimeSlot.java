@@ -44,10 +44,12 @@ import javafx.stage.Stage;
             startHourSpinner = new Spinner<>(0, 23, 0);
             startHourSpinner.setPrefHeight(40);
             startHourSpinner.setPrefWidth(80);
+            startHourSpinner.setEditable(true);
 
             startMinuteSpinner = new Spinner<>(0, 59, 0);
             startMinuteSpinner.setPrefHeight(40);
             startMinuteSpinner.setPrefWidth(80);
+            startMinuteSpinner.setEditable(true);
 
             Label endHourLabel = new Label("End Hour:");
             endHourLabel.setPrefHeight(50);
@@ -58,10 +60,13 @@ import javafx.stage.Stage;
             endHourSpinner = new Spinner<>(0, 23, 0);
             endHourSpinner.setPrefHeight(40);
             endHourSpinner.setPrefWidth(80);
+            endHourSpinner.setEditable(true);
 
             endMinuteSpinner = new Spinner<>(0, 59, 0);
             endMinuteSpinner.setPrefHeight(40);
             endMinuteSpinner.setPrefWidth(80);
+            endMinuteSpinner.setEditable(true);
+
             timeRow.getChildren().addAll(startHourLabel, startHourSpinner, startMinuteSpinner,
                     endHourLabel, endHourSpinner, endMinuteSpinner);
         }

@@ -10,16 +10,11 @@ public class Task {
     private final StringProperty endHour = new SimpleStringProperty();
     private final StringProperty date = new SimpleStringProperty();
 
-    public Task(String taskName, int startHour, String endHour, String date , LocalDate TimeSlot) {
+    public Task(String taskName, int startHour, String endHour, String date) {
         setTaskName(taskName);
         setStartHour(startHour);
         setEndHour(endHour);
         setDate(date);
-        setTimeSlot(TimeSlot);
-    }
-
-    private void setTimeSlot(LocalDate timeSlot) {
-        this.ti.set();
     }
 
     public StringProperty taskNameProperty() {

@@ -7,12 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.HelloController">
-    <padding>
-        <Insets bottom="60.0" left="160.0" right="160.0" top="60.0" />
-    </padding>
-
-    <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #86D6F8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<GridPane alignment="CENTER" maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: #86D6F8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.HelloController">
         <padding>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
         </padding>
@@ -115,7 +110,7 @@
 
             <Rectangle height="275.0" style="-fx-fill: #00000;" width="0.75" GridPane.columnIndex="1" GridPane.rowIndex="0">
          <GridPane.margin>
-            <Insets left="50.0" right="50.0" />
+            <Insets left="100.0" right="100.0" />
          </GridPane.margin></Rectangle>
         <ImageView accessibleText="Image" fitHeight="400.0" fitWidth="450.0" layoutX="103.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="0">
             <Image url="@images/loginpicture.png" />
@@ -125,5 +120,3 @@
       </rowConstraints>
 
     </GridPane>
-
-</AnchorPane>
