@@ -24,6 +24,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 
@@ -47,12 +48,27 @@ public class FeedPageController implements Initializable {
             LocalDate startDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getPeriode().getDate_debut();
             LocalDate endDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getPeriode().getDate_fin();
             periodLabel.setText("Period : " + startDate.toString() + " TO " + endDate.toString());
+            // Extract the years, months, and days from the period
+            LocalDate currentDate = LocalDate.now();
+            Period period;
+            int months;
+            int days;
+            if(currentDate == startDate){
+                period = Period.between(currentDate, endDate);
+                months = period.getMonths();
+                days = period.getDays();
+            }else{
+                period = Period.between(startDate, endDate);
+                months = period.getMonths();
+                days = period.getDays();
+            }
+            countdown.setText("Time left : "+String.valueOf(months)+" months "+String.valueOf(days)+" days.");
         } else {
             LocalDate startDate = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getDate_debut();
             periodLabel.setText("Start date : " + startDate.toString());
-            datePicker.show();
-            datePicker.setValue(LocalDate.now());
+            countdown.setVisible(false);
         }
+        datePicker.setValue(LocalDate.now());
     }
 
     @FXML

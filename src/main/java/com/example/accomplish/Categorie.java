@@ -10,6 +10,9 @@ public class Categorie {
         this.categorie_name = categorie_name;
         Categorie_color = categorie_color;
     }
+    public Categorie(){
+
+    }
     public String getCategorie_name() {
         return categorie_name;
     }

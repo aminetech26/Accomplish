@@ -121,7 +121,7 @@
 
         <ScrollPane fx:id="scrollpane" prefHeight="375.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" stylesheets="@style.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
 
-                <VBox fx:id="task" spacing="10" style="-fx-background-color: #FFFFFF;">
+                <VBox fx:id="vbox" spacing="10" style="-fx-background-color: #FFFFFF;">
                     <!-- Row 1 -->
                     <!--<HBox spacing="10" styleClass="scroll-pane" stylesheets="@style.css">
                <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCheckboxAction">
@@ -172,7 +172,7 @@
                 </font>
             </Label>
 
-            <Button fx:id="Manual_Planning" layoutX="205.0" layoutY="78.0" onAction="#GoToManualPlanning" prefHeight="82.0" prefWidth="207.0" style="-fx-font-weight: bold;" text="Manual planification">
+            <Button fx:id="Manual_Planning" layoutX="205.0" layoutY="78.0" onAction="#GoToManualPlanning" prefHeight="82.0" prefWidth="207.0" style="-fx-font-weight: bold;" styleClass=".button" text="Manual planification">
                 <font>
                     <Font size="15.0" />
                 </font>
@@ -180,7 +180,7 @@
                <Insets left="25.0" />
             </HBox.margin>
             </Button>
-            <Button id="Auto_Planning" layoutX="205.0" layoutY="78.0" prefHeight="83.0" prefWidth="211.0" style="-fx-font-weight: bold;" text="Automatic planification">
+            <Button id="Auto_Planning" fx:id="automatic_plannification" layoutX="205.0" layoutY="78.0" prefHeight="83.0" prefWidth="211.0" style="-fx-font-weight: bold;" styleClass=".button" text="Automatic planification">
                 <font>
                     <Font size="15.0" />
                 </font>
