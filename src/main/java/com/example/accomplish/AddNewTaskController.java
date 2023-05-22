@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -126,7 +127,7 @@ public class AddNewTaskController {
         new_task.setTache_etat_realisation(Etat_Realisation.NOTREALIZED);
         new_task.setScheduled(false);
         LocalTime duree = LocalTime.parse(taskDuration.getText(), DateTimeFormatter.ofPattern("HH:mm"));
-        new_task.setDuree(duree);
+        new_task.setDuree(Duration.between(LocalTime.MIN,duree).toMinutes());
         Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().add(new_task);
         CustomElement customElement = new CustomElement();
         customElement.addLabel(new_task.getTache_name());
