@@ -148,3 +148,8 @@
     -fx-background-color: #EFFAFF;
     -fx-background-radius: 15 0 0 15;
 }
+
+.table-cell {
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
