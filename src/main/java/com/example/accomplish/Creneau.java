@@ -1,6 +1,15 @@
 package com.example.accomplish;
 
+import javafx.scene.layout.HBox;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Creneau {
+    public static List<CustomElement_TimeSlot> customElement_timeSlots = new ArrayList<CustomElement_TimeSlot>();
+    public Creneau(){
+
+    }
 
     public Creneau( int heure_debut, int minutes_debut, int heure_fin, int minutes_fin, int duree) {
         this.heure_debut = heure_debut;

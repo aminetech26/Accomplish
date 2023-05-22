@@ -76,6 +76,11 @@ private void showPopup(Stage stage, String message) {
     public void Confirm(ActionEvent event)throws IOException {
         Project current_project =  Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
         showPopup((Stage) confirmSpecificTimeSlots.getScene().getWindow(), current_project.getProject_name()+" size of list planning : "+ String.valueOf(current_project.getList_planning().size()));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("setting-free-time-slots.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public class CustomElement_SpecificTimeSlot extends HBox {

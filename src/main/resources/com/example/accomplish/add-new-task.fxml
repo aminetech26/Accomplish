@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.AddNewTaskController">
+<GridPane alignment="CENTER" maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.AddNewTaskController">
 
       <HBox alignment="CENTER" spacing="500.0" GridPane.rowIndex="0">
          <ImageView fx:id="fermer_popup" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#BackToTasksPage" pickOnBounds="true" preserveRatio="true">
@@ -86,6 +99,9 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
                   </Text>
 
                   <ComboBox fx:id="taskPriority" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
@@ -98,7 +114,7 @@
                         <Font size="15.0" />
                      </font>
                   <HBox.margin>
-                     <Insets top="10.0" />
+                     <Insets />
                   </HBox.margin>
                   </Text>
 
@@ -122,16 +138,16 @@
                </HBox>
             <HBox alignment="CENTER" spacing="25.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task deadline :" textAlignment="CENTER" wrappingWidth="104.6630859375">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task duration :" textAlignment="CENTER" wrappingWidth="110.6630859375">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets bottom="18.0" left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Spinner fx:id="dureeHour" initialValue="0" max="23" min="0" prefHeight="38.0" prefWidth="100.0" />
-                  <Spinner fx:id="dureeMinute" initialValue="0" max="59" min="0" prefWidth="100.0">
+                  <Spinner fx:id="dureeHour" initialValue="0" max="23" min="0" prefHeight="38.0" prefWidth="78.0" />
+                  <Spinner fx:id="dureeMinute" initialValue="0" max="59" min="0" prefHeight="39.0" prefWidth="78.0">
                      <HBox.margin>
                         <Insets left="-20.0" />
                      </HBox.margin></Spinner>
@@ -143,6 +159,9 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                  <HBox.margin>
+                     <Insets right="35.0" />
+                  </HBox.margin>
                   </Text>
 
                   <ComboBox fx:id="taskType" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
@@ -153,9 +172,12 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                  <HBox.margin>
+                     <Insets right="45.0" />
+                  </HBox.margin>
                   </Text>
 
-                  <ComboBox fx:id="locked" prefWidth="150.0" style="-fx-background-color: #EFFAFF;" />
+                  <ComboBox fx:id="locked" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #EFFAFF;" />
                </HBox>
 
 
