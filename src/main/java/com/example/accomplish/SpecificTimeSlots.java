@@ -85,10 +85,8 @@ private void showPopup(Stage stage, String message) {
 
     public class CustomElement_SpecificTimeSlot extends HBox {
 
-        private Spinner<Integer> startHourSpinner;
-        private Spinner<Integer> startMinuteSpinner;
-        private Spinner<Integer> endHourSpinner;
-        private Spinner<Integer> endMinuteSpinner;
+        private TextField startHourTextField;
+        private TextField endHourTextField;
         private ChoiceBox<String> choiceBox;
 
         public CustomElement_SpecificTimeSlot() {
@@ -108,59 +106,44 @@ private void showPopup(Stage stage, String message) {
             choiceBox.setPrefWidth(150);
             HBox.setMargin(choiceBox, new Insets(0, 0, 0, 25));
 
-            Label startHourLabel = new Label("Start Hour :");
+            Label startHourLabel = new Label("Start Hour:");
             startHourLabel.setPrefHeight(50);
-            startHourLabel.setPrefWidth(110);
+            startHourLabel.setPrefWidth(125);
             startHourLabel.setStyle("-fx-font-size: 19;");
             HBox.setMargin(startHourLabel, new Insets(0, 0, 0, 50));
 
-            startHourSpinner = new Spinner<>(0, 23, 0);
-            startHourSpinner.setPrefHeight(40);
-            startHourSpinner.setPrefWidth(80);
-            HBox.setMargin(startHourSpinner, new Insets(0, 0, 0, 0));
+            TextField startHourTextField = new TextField();
+            startHourTextField.setPrefHeight(40);
+            startHourTextField.setPrefWidth(120);
+            startHourTextField.setEditable(true);
 
-            startMinuteSpinner = new Spinner<>(0, 59, 0);
-            startMinuteSpinner.setPrefHeight(40);
-            startMinuteSpinner.setPrefWidth(80);
-            HBox.setMargin(startMinuteSpinner, new Insets(0, 0, 0, 0));
-
-            Label endHourLabel = new Label("End Hour :");
+            Label endHourLabel = new Label("End Hour:");
             endHourLabel.setPrefHeight(50);
-            endHourLabel.setPrefWidth(110);
+            endHourLabel.setPrefWidth(125);
             endHourLabel.setStyle("-fx-font-size: 19;");
             HBox.setMargin(endHourLabel, new Insets(0, 0, 0, 50));
 
-            endHourSpinner = new Spinner<>(0, 23, 0);
-            endHourSpinner.setPrefHeight(40);
-            endHourSpinner.setPrefWidth(80);
-            HBox.setMargin(endHourSpinner, new Insets(0, 0, 0, 0));
+            TextField endHourTextField = new TextField();
+            endHourTextField.setPrefHeight(40);
+            endHourTextField.setPrefWidth(120);
+            endHourTextField.setEditable(true);
 
-            endMinuteSpinner = new Spinner<>(0, 59, 0);
-            endMinuteSpinner.setPrefHeight(40);
-            endMinuteSpinner.setPrefWidth(80);
-            HBox.setMargin(endMinuteSpinner, new Insets(0, 0, 0, 0));
-
-            timeRow.getChildren().addAll(choiceBox, startHourLabel, startHourSpinner, startMinuteSpinner,
-                    endHourLabel, endHourSpinner, endMinuteSpinner);
+            timeRow.getChildren().addAll(choiceBox, startHourLabel, startHourTextField,
+                    endHourLabel, endHourTextField);
 
             freeTimeSlots.getChildren().add(timeRow);
             getChildren().add(freeTimeSlots);
         }
 
         public int getStartHour() {
-            return startHourSpinner.getValue();
+            String startHourText = startHourTextField.getText();
+            return Integer.parseInt(startHourText);
         }
 
-        public int getStartMinute() {
-            return startMinuteSpinner.getValue();
-        }
 
         public int getEndHour() {
-            return endHourSpinner.getValue();
-        }
-
-        public int getEndMinute() {
-            return endMinuteSpinner.getValue();
+            String endHourText = endHourTextField.getText();
+            return Integer.parseInt(endHourText);
         }
     }
 

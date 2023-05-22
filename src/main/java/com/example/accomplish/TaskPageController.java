@@ -35,6 +35,7 @@ public class TaskPageController implements Initializable {
 
     public class CheckBoxHandler {
         private static int selectedCheckBoxesCounter = 0;
+        private static int checkBoxCounter = 0;
         public static void handleCheckboxAction (ActionEvent event){
 
             CheckBox checkBox = (CheckBox) event.getSource();
@@ -71,6 +72,14 @@ public class TaskPageController implements Initializable {
                 automatic.setDisable(true);
                 manuel.setDisable(true);
             }
+
+            //*** Giving id to checkbox ***//
+
+            /*checkBox.setId(String.valueOf(checkBoxCounter));
+            checkBoxCounter++;*/
+
+
+            //****************//
         }
     }
     @FXML

@@ -105,8 +105,7 @@
                                 <Insets left="30.0" />
                             </HBox.margin>
                         </Label>
-                        <Spinner initialValue="0" max="23" min="0" editable="true" prefHeight="40.0" prefWidth="80.0" />
-                        <Spinner initialValue="0" max="59" min="0" editable="true" prefHeight="40.0" prefWidth="80.0" />
+                        <TextField editable="true" prefHeight="40.0" prefWidth="120.0" />
 
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="125.0" text="End Hour :">
                             <font>
@@ -116,8 +115,7 @@
                                 <Insets left="40.0" />
                             </HBox.margin>
                         </Label>
-                        <Spinner initialValue="0" max="23" min="0" editable="true" prefHeight="40.0" prefWidth="80.0" />
-                        <Spinner initialValue="0" max="59" min="0" editable="true" prefHeight="40.0" prefWidth="80.0" />
+                        <TextField editable="true" prefHeight="40.0" prefWidth="120.0" />
                         <VBox.margin>
                             <Insets />
                         </VBox.margin>

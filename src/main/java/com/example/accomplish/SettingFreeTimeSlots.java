@@ -103,9 +103,9 @@ public class SettingFreeTimeSlots implements Initializable {
         if (!Creneau.customElement_timeSlots.isEmpty()){
             Creneau creneau_libre = new Creneau();
             creneau_libre.setHeure_debut(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartHour());
-            creneau_libre.setMinutes_debut(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartMinute());
+            //creneau_libre.setMinutes_debut(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartMinute());
             creneau_libre.setHeure_fin(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndHour());
-            creneau_libre.setMinutes_fin(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndMinute());
+            //creneau_libre.setMinutes_fin(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndMinute());
             for (Journee journee:Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().get(Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getList_journee()) {
                 journee.getToday_creneaus().add(creneau_libre);
             }

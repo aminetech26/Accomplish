@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -16,11 +18,28 @@ import java.util.Objects;
 
 public class ManualPlannificationController {
     public DatePicker SetDay_ManualPlanning;
+    public TextField TaskName;
+    public ComboBox TaskCategory;
+    public ComboBox TaskPriority;
 
 
     public void initialize(){
             SetDay_ManualPlanning.setDayCellFactory(picker -> new DatePickerCell());
+
+            //******
+
+
+
+            //******
+
     }
+
+
+
+
+
+
+
 
     @FXML
     public void GotoHome(MouseEvent event) throws IOException {

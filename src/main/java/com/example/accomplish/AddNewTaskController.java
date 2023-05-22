@@ -98,6 +98,8 @@ public class AddNewTaskController {
         stage.show();
     }
 
+    private int checkBoxCounter = 0;
+
     @FXML
     public void handleAddTaskButton(ActionEvent event) throws IOException {
         Categorie categorie = new Categorie();
