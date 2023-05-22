@@ -21,6 +21,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -92,7 +95,8 @@ public class SettingFreeTimeSlots implements Initializable {
         creneau_libre.setDebutCrenau(debutCrenau);
         LocalTime finCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
         creneau_libre.setFinCrenau(finCrenau);
-
+        creneau_libre.setFinCrenau(finCrenau);
+        creneau_libre.setDuree(Duration.between(debutCrenau, finCrenau).toMinutes());
         for (Journee journee:Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().get(Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getList_journee()) {
             journee.getToday_creneaus().add(creneau_libre);
         }
@@ -116,6 +120,8 @@ public class SettingFreeTimeSlots implements Initializable {
             creneau_libre.setDebutCrenau(debutCrenau);
             LocalTime finCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
             creneau_libre.setFinCrenau(finCrenau);
+            creneau_libre.setFinCrenau(finCrenau);
+            creneau_libre.setDuree(Duration.between(debutCrenau, finCrenau).toMinutes());
             for (Journee journee:Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().get(Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getList_journee()) {
                 journee.getToday_creneaus().add(creneau_libre);
             }

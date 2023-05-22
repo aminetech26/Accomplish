@@ -2,6 +2,7 @@ package com.example.accomplish;
 
 import javafx.scene.layout.HBox;
 
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Creneau {
 
     }
 
-    public Creneau(LocalTime debutCrenau, LocalTime finCrenau, LocalTime duree) {
+    public Creneau(LocalTime debutCrenau, LocalTime finCrenau, Long duree) {
         this.debutCrenau = debutCrenau;
         this.finCrenau = finCrenau;
         this.duree = duree;
@@ -37,13 +38,13 @@ public class Creneau {
     public void setFinCrenau(LocalTime finCrenau) {
         this.finCrenau = finCrenau;
     }
-    private LocalTime duree;
+    private long duree;
 
-    public LocalTime getDuree() {
+    public long getDuree() {
         return duree;
     }
 
-    public void setDuree(LocalTime duree) {
+    public void setDuree(long duree) {
         this.duree = duree;
     }
 }

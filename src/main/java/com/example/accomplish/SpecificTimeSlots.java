@@ -15,9 +15,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Objects;
 import javafx.collections.FXCollections;
@@ -74,6 +77,8 @@ private void showPopup(Stage stage, String message) {
         creneau_libre.setDebutCrenau(debutCrenau);
         LocalTime finCrenau = LocalTime.parse((Creneau.customElement_specificTimeSlots.get(Creneau.customElement_specificTimeSlots.size()-1).getEndHourTextField().getText()), DateTimeFormatter.ofPattern("HH:mm"));
         creneau_libre.setFinCrenau(finCrenau);
+        creneau_libre.setFinCrenau(finCrenau);
+        creneau_libre.setDuree(Duration.between(debutCrenau, finCrenau).toMinutes());
         for (Journee journee : journeePeriode) {
             if (journee.getDate().equals(date)) {
                 journee.getToday_creneaus().add(creneau_libre);
@@ -123,6 +128,7 @@ private void showPopup(Stage stage, String message) {
             creneau_libre.setDebutCrenau(debutCrenau);
             LocalTime finCrenau = LocalTime.parse((Creneau.customElement_specificTimeSlots.get(Creneau.customElement_specificTimeSlots.size()-1).getEndHourTextField().getText()), DateTimeFormatter.ofPattern("HH:mm"));
             creneau_libre.setFinCrenau(finCrenau);
+            creneau_libre.setDuree(Duration.between(debutCrenau, finCrenau).toMinutes());
             for (Journee journee : journeePeriode) {
                 if (journee.getDate().equals(date)) {
                     journee.getToday_creneaus().add(creneau_libre);

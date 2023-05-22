@@ -20,7 +20,7 @@ public class Journee {
         this.tache_plannifiee = tache_plannifiee;
     }
 
-    private List<Integer> creneau_duree = new ArrayList<Integer>();
+    private List<Long> creneau_duree = new ArrayList<Long>();
     private List<Tache> today_taches = new ArrayList<Tache>();
     private int nb_tasks_accomplished;
     private int etat_avancement;
@@ -28,7 +28,6 @@ public class Journee {
     public Journee(){
 
     }
-
     private LocalDate date;
 
     public LocalDate getDate() {
@@ -39,15 +38,15 @@ public class Journee {
         this.date = date;
     }
 
-    public List<Integer> getCreneau_duree() {
+    public List<Long> getCreneau_duree() {
         return creneau_duree;
     }
 
-    public void setCreneau_duree(List<Integer> creneau_duree) {
+    public void setCreneau_duree(List<Long> creneau_duree) {
         this.creneau_duree = creneau_duree;
     }
 
-    public Journee(List<Creneau> today_creneaus, List<Integer> creneau_duree, List<Tache> today_taches, int nb_tasks_accomplished, int etat_avancement) {
+    public Journee(List<Creneau> today_creneaus, List<Long> creneau_duree, List<Tache> today_taches, int nb_tasks_accomplished, int etat_avancement) {
         this.today_creneaus = today_creneaus;
         this.creneau_duree = creneau_duree;
         this.today_taches = today_taches;
@@ -84,5 +83,11 @@ public class Journee {
 
     public void setEtat_avancement(int etat_avancement) {
         this.etat_avancement = etat_avancement;
+    }
+
+    public void setCrenauDurations(){
+        for (Creneau creneau: today_creneaus) {
+            creneau_duree.add(creneau.getDuree());
+        }
     }
 }

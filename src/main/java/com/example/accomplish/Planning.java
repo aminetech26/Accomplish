@@ -82,12 +82,13 @@ public class Planning {
             // Sort the list
             liste_taches.sort(comparator);
     }
-/*
+
     public void plannification_automatique_avec_periode(List<Tache> liste_taches_a_plannifier){
         for (Tache tache:liste_taches_a_plannifier) {
             for (Journee journee: periode.getList_journee()) {
+                journee.setCrenauDurations();
             if (journee.getDate().isBefore(tache.getDeadline())){
-                    if (journee.getCreneau_duree().stream().anyMatch(value -> value == tache.getDuree())){
+                    if (journee.getCreneau_duree().stream().anyMatch(value -> Objects.equals(value, tache.getDuree()))){
                         Pair<Tache,Creneau> pair = new Pair<>(tache,journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
                         journee.getTache_plannifiee().add(pair);
                         journee.getCreneau_duree().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
@@ -95,8 +96,12 @@ public class Planning {
                     }else if (Collections.max(journee.getCreneau_duree()) > tache.getDuree()){
                         Creneau creneau_complet = journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(Collections.max(journee.getCreneau_duree())));
                         //heure fin et minute fin se calcule selon la duree de la tache -- qui seront heure debut et minutre debut du nouveau crenau
-                        Creneau crenau_tache = new Creneau(creneau_complet.getHeure_debut(),creneau_complet.getMinutes_debut(),creneau_complet.getHeure_fin(),creneau_complet.getMinutes_fin(),tache.getDuree());
+
                     }
+
+            
+
+
             }else {
                 Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getTaches_unscheduled().add(tache);
             }
@@ -115,5 +120,5 @@ public class Planning {
         }
     }
 
-*/
+
 }
