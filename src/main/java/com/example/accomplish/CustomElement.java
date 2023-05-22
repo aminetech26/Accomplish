@@ -75,12 +75,16 @@ public class CustomElement extends StackPane {
         StackPane.setAlignment(labelsBox, Pos.CENTER);
         StackPane.setMargin(labelsBox, new Insets(35, 0, 0, 125));
         // Create the ComboBox
-        ObservableList<String> options = FXCollections.observableArrayList("NOT REALIZED","COMPLETED","IN PROGRESS","CANCELLED","DELAYED");
+        ObservableList<String> options = FXCollections.observableArrayList(
+                "NOT REALIZED", "COMPLETED", "IN PROGRESS", "CANCELLED", "DELAYED");
         comboBox = new ComboBox<>(options);
+        comboBox.setPromptText("Select status"); // Optional: Display a prompt text
+        comboBox.setValue("NOT REALIZED"); // Optional: Set a default value
         StackPane.setMargin(comboBox, new Insets(15, 0, 0, 50));
         comboBox.setPrefSize(150, 50);
         comboBox.getStyleClass().add("combobox-task");
         comboBox.getStylesheets().add("@style.css");
+
         setAlignment(Pos.CENTER);
         getChildren().addAll(rectangle,comboBox, checkBox, labelsBox);
     }

@@ -54,6 +54,7 @@ public class AddNewTaskController {
         taskCategory.getItems().addAll(category_names);
         taskPriority.getItems().addAll("HIGH", "MEDIUM", "LOW");
         locked.getItems().addAll("YES", "NO");
+        taskDeadline.setDayCellFactory(picker -> new DatePickerCell());
 
         ToggleGroup toggleGroup = new ToggleGroup();
         noRadioButton.setToggleGroup(toggleGroup);
@@ -135,5 +136,6 @@ public class AddNewTaskController {
         stage.setScene(scene);
         stage.show();
     }
+
 
 }

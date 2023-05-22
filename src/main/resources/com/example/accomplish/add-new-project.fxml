@@ -6,14 +6,14 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="625.0" prefWidth="1200.0" style="-fx-pref-height: 625; -fx-pref-width: 1200; -fx-background-color: #EFFAFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.NewProjectController">
+<AnchorPane maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-pref-height: 625; -fx-pref-width: 1200; -fx-background-color: #EFFAFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.NewProjectController">
    <children>
-      <Text fill="#86d6f8" layoutX="461.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new project" textAlignment="CENTER">
+      <Text fill="#86d6f8" layoutX="461.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new project" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Text>
-      <GridPane hgap="50.0" layoutX="222.0" layoutY="237.0" prefHeight="229.0" prefWidth="755.0" vgap="50.0">
+      <GridPane hgap="50.0" layoutX="200.0" layoutY="200.0" prefHeight="229.0" prefWidth="755.0" vgap="50.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="300.0" prefWidth="300.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.66668701171875" minWidth="500.0" prefWidth="500.0" />
@@ -32,7 +32,6 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" />
             <TextField fx:id="projectTitle" maxHeight="30.0" maxWidth="200.0" minHeight="30.0" minWidth="500.0" prefHeight="30.0" prefWidth="400.0" GridPane.columnIndex="1" />
             <Label prefHeight="56.0" prefWidth="264.0" style="-fx-font-weight: bold;" text="Project description :" GridPane.rowIndex="1">
                <padding>
@@ -58,8 +57,8 @@
             </Button>
          </children>
       </GridPane>
-      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#86d6f8" height="4.0" layoutX="542.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 10; -fx-arc-width: 10;" width="200.0" />
-      <Button fx:id="addProjectButton" layoutX="572.0" layoutY="546.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleAddProjectButton" prefHeight="53.0" prefWidth="187.0" style="-fx-background-color: #4E719D; -fx-pref-height: 30;" text="Add the project" textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#86d6f8" height="4.0" layoutX="556.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 10; -fx-arc-width: 10;" width="200.0" />
+      <Button fx:id="addProjectButton" layoutX="570.0" layoutY="510.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleAddProjectButton" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: #4E719D; -fx-pref-height: 30;" text="Add the project" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

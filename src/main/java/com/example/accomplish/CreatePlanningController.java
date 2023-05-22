@@ -37,6 +37,7 @@ public class CreatePlanningController {
         noRadioButton.setToggleGroup(toggleGroup);
         yesRadioButton.setToggleGroup(toggleGroup);
         startDate.setDayCellFactory(picker -> new DatePickerCell());
+        secondDatePicker.setDayCellFactory(picker -> new DatePickerCell());
         endDateLabel.setStyle("-fx-font-size: 15px; -fx-font-weight: bold;");
         endDateLabel.setVisible(false);
         secondDatePicker.setEditable(false); // Disable manual input

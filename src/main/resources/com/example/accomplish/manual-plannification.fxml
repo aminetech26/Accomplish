@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-pref-width: 1200; -fx-pref-height: 625; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.ManualPlannificationController">
+<GridPane maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-pref-width: 1200; -fx-pref-height: 625; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.ManualPlannificationController">
 
    <VBox alignment="CENTER" prefHeight="625.0" prefWidth="80.0" spacing="25" style="-fx-background-color: #EFFAFF;" GridPane.columnIndex="0">
       <effect>
@@ -107,7 +97,7 @@
    <TextField layoutX="455.0" layoutY="168.0" prefHeight="38.0" prefWidth="193.0" />
    <ComboBox layoutX="455.0" layoutY="215.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
    <ComboBox layoutX="455.0" layoutY="264.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
-   <DatePicker editable="false" layoutX="454.0" layoutY="313.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+   <DatePicker fx:id="SetDay_ManualPlanning" editable="false" layoutX="454.0" layoutY="313.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
    <ComboBox layoutX="454.0" layoutY="360.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
    <ComboBox layoutX="454.0" layoutY="405.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
    <Button layoutX="431.0" layoutY="531.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold;" text="Plan" textFill="WHITE">

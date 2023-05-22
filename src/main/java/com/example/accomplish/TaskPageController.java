@@ -12,8 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +32,8 @@ public class TaskPageController implements Initializable {
     public VBox vbox;
     public Button Manual_Planning;
     public Button automatic_plannification;
+    public ScrollPane scrollpane;
+
     public class CheckBoxHandler {
         private static int selectedCheckBoxesCounter = 0;
         public static void handleCheckboxAction (ActionEvent event){
@@ -75,6 +82,10 @@ public class TaskPageController implements Initializable {
         for (CustomElement custom:AddNewTaskController.customElements) {
             AddCustomElement(custom);
         }
+
+        scrollpane.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, null)));
+        vbox.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, null)));
+
         }
     }
     public void GotoHome (MouseEvent event) throws IOException {

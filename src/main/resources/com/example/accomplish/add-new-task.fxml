@@ -1,38 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.AddNewTaskController">
+<GridPane alignment="CENTER" maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.AddNewTaskController">
 
-      <HBox alignment="CENTER" GridPane.rowIndex="0">
+      <HBox alignment="CENTER" spacing="500.0" GridPane.rowIndex="0">
          <ImageView fx:id="fermer_popup" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#BackToTasksPage" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/retour.png" />
             <HBox.margin>
-               <Insets left="-200.0" right="250.0" />
+               <Insets />
             </HBox.margin>
          </ImageView>
 
-         <VBox alignment="CENTER" spacing="5.0">
+         <VBox alignment="CENTER" prefWidth="950.0" spacing="5.0">
 
          <Text fill="#86d6f8" layoutX="349.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Add a new task">
             <font>
@@ -40,13 +26,13 @@
             </font>
          </Text>
 
-         <Line endX="27.333343505859375" endY="-7.62939453125E-6" startX="-259.0" stroke="#86d6f8" strokeWidth="3.0" />
+         <Line endX="27.333343505859375" endY="-7.62939453125E-6" startX="-259.0" stroke="#86d6f8" strokeWidth="3.0">
+            <VBox.margin>
+               <Insets />
+            </VBox.margin></Line>
          <HBox.margin>
-            <Insets />
+            <Insets left="-500.0" />
          </HBox.margin>
-         <padding>
-            <Insets top="-25.0" />
-         </padding>
 
          </VBox>
 
@@ -55,7 +41,7 @@
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
          </padding>
          <GridPane.margin>
-            <Insets bottom="25.0" left="50.0" top="5.0" />
+            <Insets bottom="10.0" top="5.0" />
          </GridPane.margin>
       </HBox>
 
@@ -64,7 +50,7 @@
 
          <StackPane>
 
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="450.0" stroke="WHITE" strokeType="INSIDE" width="400.0">
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="490.0" stroke="WHITE" strokeType="INSIDE" width="400.0">
       <effect>
          <DropShadow />
       </effect>
@@ -134,11 +120,21 @@
                   </VBox>
 
                </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" spacing="25.0">
                <children>
-                  <Label text="Task duration :" />
-                  <Spinner fx:id="dureeHour" initialValue="0" max="23" min="0" />
-                  <Spinner fx:id="dureeMinute" initialValue="0" max="59" min="0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task deadline :" textAlignment="CENTER" wrappingWidth="104.6630859375">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Spinner fx:id="dureeHour" initialValue="0" max="23" min="0" prefHeight="38.0" prefWidth="100.0" />
+                  <Spinner fx:id="dureeMinute" initialValue="0" max="59" min="0" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets left="-20.0" />
+                     </HBox.margin></Spinner>
                </children>
             </HBox>
 
@@ -178,8 +174,11 @@
          </StackPane>
 
       <padding>
-         <Insets bottom="25.0" left="50.0" />
+         <Insets bottom="10.0" left="50.0" />
       </padding>
+      <GridPane.margin>
+         <Insets />
+      </GridPane.margin>
       </VBox>
 
       <columnConstraints>
