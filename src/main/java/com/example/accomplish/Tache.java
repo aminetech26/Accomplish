@@ -1,6 +1,7 @@
 package com.example.accomplish;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Tache {
@@ -9,7 +10,7 @@ public class Tache {
     private boolean ifdeadline;
     private LocalDate deadline;
     private Categorie tache_categorie;
-    private int duree;
+    private LocalTime duree;
     private boolean scheduled;
 
     public boolean isScheduled() {
@@ -67,10 +68,10 @@ public class Tache {
     public void setTache_categorie(Categorie tache_categorie) {
         this.tache_categorie = tache_categorie;
     }
-    public int getDuree() {
+    public LocalTime getDuree() {
         return duree;
     }
-    public void setDuree(int duree) {
+    public void setDuree(LocalTime duree) {
         this.duree = duree;
     }
     public boolean isTasktype() {

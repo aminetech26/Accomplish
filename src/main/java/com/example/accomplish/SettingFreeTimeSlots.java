@@ -21,6 +21,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +74,6 @@ public class SettingFreeTimeSlots implements Initializable {
         stage.setScene(scene);
         stage.show();
 
-
     }
     private void showPopup(Stage stage, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -86,7 +87,16 @@ public class SettingFreeTimeSlots implements Initializable {
         Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
         Planning planning = current.getList_planning().get(current.getList_planning().size()-1);
         List<Journee> journeeList = planning.getPeriode().getList_journee();
-        showPopup((Stage) confirmCreneau.getScene().getWindow(), "Heure debut : " + String.valueOf(journeeList.get(0).getToday_creneaus().get(0).getHeure_debut()) + " Heure fin : " + String.valueOf(journeeList.get(0).getToday_creneaus().get(0).getHeure_fin()));
+        Creneau creneau_libre = new Creneau();
+        LocalTime debutCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
+        creneau_libre.setDebutCrenau(debutCrenau);
+        LocalTime finCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
+        creneau_libre.setFinCrenau(finCrenau);
+
+        for (Journee journee:Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().get(Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getList_journee()) {
+            journee.getToday_creneaus().add(creneau_libre);
+        }
+        showPopup((Stage) confirmCreneau.getScene().getWindow(), "debut creneau : " + String.valueOf(journeeList.get(0).getToday_creneaus().get(journeeList.get(0).getToday_creneaus().size()-1).getDebutCrenau()) + " Fin creneau : " + String.valueOf(journeeList.get(0).getToday_creneaus().get(journeeList.get(0).getToday_creneaus().size()-1).getFinCrenau()));
         Creneau.customElement_timeSlots = new ArrayList<CustomElement_TimeSlot>();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Feed_Page.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -102,10 +112,10 @@ public class SettingFreeTimeSlots implements Initializable {
         free_time_slots.getChildren().add(customElement.getTimeRow());
         if (!Creneau.customElement_timeSlots.isEmpty()){
             Creneau creneau_libre = new Creneau();
-            creneau_libre.setHeure_debut(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartHour());
-            //creneau_libre.setMinutes_debut(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartMinute());
-            creneau_libre.setHeure_fin(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndHour());
-            //creneau_libre.setMinutes_fin(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndMinute());
+            LocalTime debutCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
+            creneau_libre.setDebutCrenau(debutCrenau);
+            LocalTime finCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
+            creneau_libre.setFinCrenau(finCrenau);
             for (Journee journee:Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().get(Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getList_journee()) {
                 journee.getToday_creneaus().add(creneau_libre);
             }

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -146,11 +145,7 @@
                         <Insets bottom="18.0" left="10.0" />
                      </HBox.margin>
                   </Text>
-                  <Spinner fx:id="dureeHour" initialValue="0" max="23" min="0" prefHeight="38.0" prefWidth="78.0" />
-                  <Spinner fx:id="dureeMinute" initialValue="0" max="59" min="0" prefHeight="39.0" prefWidth="78.0">
-                     <HBox.margin>
-                        <Insets left="-20.0" />
-                     </HBox.margin></Spinner>
+                  <TextField fx:id="taskDuration" prefHeight="37.0" prefWidth="160.0" />
                </children>
             </HBox>
 

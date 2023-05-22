@@ -82,6 +82,7 @@ public class Planning {
             // Sort the list
             liste_taches.sort(comparator);
     }
+/*
     public void plannification_automatique_avec_periode(List<Tache> liste_taches_a_plannifier){
         for (Tache tache:liste_taches_a_plannifier) {
             for (Journee journee: periode.getList_journee()) {
@@ -114,5 +115,5 @@ public class Planning {
         }
     }
 
-
+*/
 }

@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -21,8 +23,7 @@ import java.util.Objects;
 public class AddNewTaskController {
 
     public ImageView fermer_popup;
-    public Spinner dureeHour;
-    public Spinner dureeMinute;
+    public TextField taskDuration;
     public static List<CustomElement> customElements = new ArrayList<CustomElement>();
 
 
@@ -124,7 +125,7 @@ public class AddNewTaskController {
         Tache new_task = new Tache(taskName.getText(),Priorite.valueOf(taskPriority.getValue().toString()),yesRadioButton.isSelected(),taskDeadline.getValue(),categorie,decomposable,isLocked);
         new_task.setTache_etat_realisation(Etat_Realisation.NOTREALIZED);
         new_task.setScheduled(false);
-        int duree = ((int)dureeHour.getValue())*60 + (int)dureeMinute.getValue();
+        LocalTime duree = LocalTime.parse(taskDuration.getText(), DateTimeFormatter.ofPattern("HH:mm"));
         new_task.setDuree(duree);
         Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().add(new_task);
         CustomElement customElement = new CustomElement();

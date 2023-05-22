@@ -21,6 +21,23 @@ import javafx.stage.Stage;
     public class CustomElement_TimeSlot extends HBox{
         private TextField startHourTextField;
         private TextField endHourTextField;
+
+        public TextField getStartHourTextField() {
+            return startHourTextField;
+        }
+
+        public void setStartHourTextField(TextField startHourTextField) {
+            this.startHourTextField = startHourTextField;
+        }
+
+        public TextField getEndHourTextField() {
+            return endHourTextField;
+        }
+
+        public void setEndHourTextField(TextField endHourTextField) {
+            this.endHourTextField = endHourTextField;
+        }
+
         private HBox timeRow = new HBox();
 
         public CustomElement_TimeSlot() {
@@ -35,7 +52,7 @@ import javafx.stage.Stage;
             startHourLabel.setStyle("-fx-font-size: 19;");
             HBox.setMargin(startHourLabel, new Insets(0, 0, 0, 50));
 
-            TextField startHourTextField = new TextField();
+            startHourTextField = new TextField();
             startHourTextField.setPrefHeight(40);
             startHourTextField.setPrefWidth(120);
             startHourTextField.setEditable(true);
@@ -46,24 +63,13 @@ import javafx.stage.Stage;
             endHourLabel.setStyle("-fx-font-size: 19;");
             HBox.setMargin(endHourLabel, new Insets(0, 0, 0, 50));
 
-            TextField endHourTextField = new TextField();
+            endHourTextField = new TextField();
             endHourTextField.setPrefHeight(40);
             endHourTextField.setPrefWidth(120);
             endHourTextField.setEditable(true);
 
             timeRow.getChildren().addAll(startHourLabel, startHourTextField,
                     endHourLabel, endHourTextField);
-        }
-
-        public int getStartHour() {
-            String startHourText = startHourTextField.getText();
-            return Integer.parseInt(startHourText);
-        }
-
-
-        public int getEndHour() {
-            String endHourText = endHourTextField.getText();
-            return Integer.parseInt(endHourText);
         }
 
         public HBox getTimeRow() {
