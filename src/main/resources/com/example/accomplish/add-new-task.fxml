@@ -137,7 +137,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Task duration :" />
-                  <Spinner fx:id="dureeHour"  initialValue="0" max="23" min="0"/>
+                  <Spinner fx:id="dureeHour" initialValue="0" max="23" min="0" />
                   <Spinner fx:id="dureeMinute" initialValue="0" max="59" min="0" />
                </children>
             </HBox>
