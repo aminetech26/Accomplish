@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -24,6 +25,7 @@ public class CustomElement extends StackPane {
     public CheckBox checkBox;
     private Rectangle rectangle;
     private HBox labelsBox;
+    public Label label = new Label();
     private ComboBox<String> comboBox; // Add ComboBox
 
     public CheckBox getCheckBox() {
@@ -96,7 +98,7 @@ public class CustomElement extends StackPane {
         getChildren().addAll(rectangle,comboBox, checkBox, labelsBox);
 
         // Add the Text element
-        Text text = new Text("Start From :");
+        Text text = new Text("Task title :");
         text.setStrokeType(StrokeType.OUTSIDE);
         text.setStrokeWidth(0.0);
         text.setTextAlignment(TextAlignment.CENTER);
@@ -106,8 +108,13 @@ public class CustomElement extends StackPane {
         StackPane.setMargin(text, new Insets(0, 0, 0, 275));
         getChildren().add(text);
     }
+
+    public void setLabel(String label) {
+        this.label.setText(label.toString());
+    }
+
     public void addLabel(String labelText) {
-        Label label = new Label(labelText);
+        label.setText(labelText);
         labelsBox.getChildren().add(label);
     }
 }

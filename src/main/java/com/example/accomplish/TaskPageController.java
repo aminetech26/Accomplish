@@ -35,6 +35,25 @@ public class TaskPageController implements Initializable {
 
     public static List<Tache> list_TaskTest = new ArrayList<Tache>();
 
+    public void handleModifierTache(ActionEvent event) throws IOException {
+
+        Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
+        Planning planning = current.getList_planning().get(current.getList_planning().size()-1);
+        Tache task = planning.getListe_taches().get(planning.getListe_taches().size()-1);
+        showPopup((Stage) Manual_Planning.getScene().getWindow(),task.getTache_name());
+        list_TaskTest.add(task);
+
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ModifierTache.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+
+    }
+
     public class CheckBoxHandler {
         private static int selectedCheckBoxesCounter = 0;
         private static int checkBoxCounter = 0;

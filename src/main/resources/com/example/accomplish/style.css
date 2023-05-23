@@ -141,7 +141,7 @@
     -fx-text-fill: black;
     -fx-effect: dropshadow(gaussian, black, 10, 0, 0, 0);
     -fx-font-weight: bold;
-    -fx-font-size: 17px;
+    -fx-font-size: 15px;
     -fx-font-family: 'Montserrat';
 }
 .combobox-task{

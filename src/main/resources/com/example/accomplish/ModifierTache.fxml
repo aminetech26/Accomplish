@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" style="-fx-pref-width: 1200; -fx-pref-height: 625; -fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.ModifierTacheController">
+
+<VBox alignment="CENTER" prefHeight="625.0" prefWidth="80.0" spacing="25" style="-fx-background-color: #EFFAFF;" GridPane.columnIndex="0">
+    <effect>
+        <DropShadow color="GRAY" offsetX="1.0" offsetY="0.0" radius="12.0" />
+    </effect>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GotoHome">
+        <Image url="@images/home.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="25.0" right="25.0" top="-25.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GoToTasksPage">
+        <Image url="@images/tasks.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+        <Image url="@images/statistics.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0">
+        <Image url="@images/historique.png" />
+        <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+    <ImageView accessibleText="Image" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#GoToSettings">
+        <Image url="@images/settings.png" />
+        <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+        </VBox.margin>
+    </ImageView>
+
+</VBox>
+
+<Pane GridPane.columnIndex="1">
+    <Text fill="#86d6f8" layoutX="325.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Modifier votre tache">
+        <font>
+            <Font size="30.0" />
+        </font>
+    </Text>
+    <Line endX="27.333343505859375" endY="-7.62939453125E-6" layoutX="506.0" layoutY="93.0" startX="-100.0" stroke="#86d6f8" strokeWidth="3.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="329.0" layoutX="294.0" layoutY="149.0" stroke="WHITE" strokeType="INSIDE" width="399.0">
+        <effect>
+            <DropShadow />
+        </effect>
+    </Rectangle>
+    <Text layoutX="337.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task name :">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Text>
+    <Text layoutX="337.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task category :">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Text>
+    <Text layoutX="337.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Task priority :">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Text>
+    <Text layoutX="338.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Set Day :">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Text>
+    <Text layoutX="338.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Set time-slot :">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Text>
+    <Text layoutX="339.0" layoutY="424.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Locked :">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Text>
+    <TextField fx:id="TaskName" layoutX="455.0" layoutY="168.0" prefHeight="38.0" prefWidth="193.0" />
+    <ComboBox fx:id="TaskCategory" layoutX="455.0" layoutY="215.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+    <ComboBox fx:id="TaskPriority" layoutX="455.0" layoutY="264.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+    <DatePicker fx:id="SetDay_ManualPlanning" editable="false" layoutX="454.0" layoutY="313.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+    <ComboBox fx:id="Set_TimeSlot" layoutX="454.0" layoutY="360.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+    <ComboBox fx:id="Task_IfLocked" layoutX="454.0" layoutY="405.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+    <Button layoutX="431.0" layoutY="531.0" mnemonicParsing="false" onMouseClicked="#modifiertache" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold;" text="Modifier" textAlignment="CENTER" textFill="WHITE">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+    <Line endX="-100.0" endY="624.0" layoutX="953.0" layoutY="2.0" startX="-100.0" stroke="#00000080">
+        <effect>
+            <DropShadow />
+        </effect>
+    </Line>
+    <Text layoutX="944.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-text-alignment: CENTER;" text="Welcome" wrappingWidth="97.03125000000006" />
+
+</Pane>
+<columnConstraints>
+    <ColumnConstraints />
+    <ColumnConstraints />
+</columnConstraints>
+<rowConstraints>
+    <RowConstraints />
+</rowConstraints>
+
+</GridPane>

@@ -80,7 +80,7 @@ public class SettingFreeTimeSlots implements Initializable {
     }
     private void showPopup(Stage stage, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("sign up");
+        alert.setTitle("Warning");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.initOwner(stage);
@@ -114,18 +114,24 @@ public class SettingFreeTimeSlots implements Initializable {
         free_time_slots.setAlignment(Pos.CENTER);
         free_time_slots.setStyle("-fx-background-color: #FFFFFF;");
         free_time_slots.getChildren().add(customElement.getTimeRow());
-        if (!Creneau.customElement_timeSlots.isEmpty()){
+        if (!Creneau.customElement_timeSlots.isEmpty()) {
             Creneau creneau_libre = new Creneau();
-            LocalTime debutCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getStartHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
+            LocalTime debutCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size() - 1).getStartHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
             creneau_libre.setDebutCrenau(debutCrenau);
-            LocalTime finCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size()-1).getEndHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
+            LocalTime finCrenau = LocalTime.parse(Creneau.customElement_timeSlots.get(Creneau.customElement_timeSlots.size() - 1).getEndHourTextField().getText(), DateTimeFormatter.ofPattern("HH:mm"));
             creneau_libre.setFinCrenau(finCrenau);
             creneau_libre.setFinCrenau(finCrenau);
-            creneau_libre.setDuree(Duration.between(debutCrenau, finCrenau).toMinutes());
-            for (Journee journee:Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().get(Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getList_planning().size()-1).getPeriode().getList_journee()) {
-                journee.getToday_creneaus().add(creneau_libre);
+            if (Duration.between(debutCrenau, finCrenau).toMinutes() >= Systeme.getSeuil_minimal()) {
+                creneau_libre.setDuree(Duration.between(debutCrenau, finCrenau).toMinutes());
+                for (Journee journee : Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size() - 1).getList_planning().get(Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size() - 1).getList_planning().size() - 1).getPeriode().getList_journee()) {
+                    journee.getToday_creneaus().add(creneau_libre);
+                }
+            }else {
+                showPopup((Stage) confirmCreneau.getScene().getWindow(), "Enter a valid duration for the time-slot");
+
             }
         }
         Creneau.customElement_timeSlots.add(customElement);
+
     }
-}
+        }

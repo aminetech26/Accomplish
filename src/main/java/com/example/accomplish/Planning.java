@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Planning {
     private String planning_name;
@@ -91,8 +92,11 @@ public class Planning {
                             tache.setScheduled(true);
                             Pair<Tache, Creneau> pair = new Pair<>(tache, journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
                             journee.getTache_plannifiee().add(pair);
-                            journee.getCreneau_duree().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
-                            journee.getToday_creneaus().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                            OptionalInt matchingIndex = IntStream.range(0, journee.getCreneau_duree().size())
+                                    .filter(i -> Objects.equals(journee.getCreneau_duree().get(i), tache.getDuree()))
+                                    .findFirst();
+                            journee.getCreneau_duree().remove(journee.getCreneau_duree().get(matchingIndex.getAsInt()));
+                            journee.getToday_creneaus().remove(matchingIndex.getAsInt());
                         } else if (Collections.max(journee.getCreneau_duree()) > tache.getDuree()) {
                             int index = journee.getCreneau_duree().indexOf(Collections.max(journee.getCreneau_duree()));
                             Creneau creneau_complet = journee.getToday_creneaus().get(index);
@@ -149,13 +153,17 @@ public class Planning {
                 else {
                     if (journee.getCreneau_duree().stream().anyMatch(value -> Objects.equals(value, tache.getDuree()))) {
                         tache.setScheduled(true);
-                        Pair<Tache, Creneau> pair = new Pair<>(tache, journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
-                        journee.getTache_plannifiee().add(pair);
-                        //journee.getCreneau_duree().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
-                        //journee.getToday_creneaus().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                       // Pair<Tache, Creneau> pair = new Pair<>(tache, journee.getToday_creneaus().get(journee.getToday_creneaus();
+                     //   journee.getTache_plannifiee().add(pair);
+                        OptionalInt matchingIndex = IntStream.range(0, journee.getCreneau_duree().size())
+                                .filter(i -> Objects.equals(journee.getCreneau_duree().get(i), tache.getDuree()))
+                                .findFirst();
+                        journee.getCreneau_duree().remove(journee.getCreneau_duree().get(matchingIndex.getAsInt()));
+                        journee.getToday_creneaus().remove(journee.getToday_creneaus().get(matchingIndex.getAsInt()));
                     } else if (Collections.max(journee.getCreneau_duree()) > tache.getDuree()) {
-                        int index = journee.getCreneau_duree().indexOf(Collections.max(journee.getCreneau_duree()));
-                        Creneau creneau_complet = journee.getToday_creneaus().get(index);
+                        OptionalInt matchingIndex = IntStream.range(0, journee.getCreneau_duree().size())
+                                .filter(i -> Objects.equals(journee.getCreneau_duree().get(i), Collections.max(journee.getCreneau_duree()))).findFirst();
+                        Creneau creneau_complet = journee.getToday_creneaus().get(matchingIndex.getAsInt());
                         Creneau creneau_tache = new Creneau(creneau_complet.getDebutCrenau(),creneau_complet.getDebutCrenau().plusMinutes(tache.getDuree()),tache.getDuree());
                         tache.setScheduled(true);
                         Pair<Tache, Creneau> pair = new Pair<>(tache, creneau_tache);
@@ -165,11 +173,11 @@ public class Planning {
                             nouveau_crenau_libre.setDebutCrenau(creneau_tache.getFinCrenau());
                             nouveau_crenau_libre.setFinCrenau(creneau_complet.getFinCrenau());
                             nouveau_crenau_libre.setDuree(Duration.between(creneau_tache.getFinCrenau(),creneau_complet.getFinCrenau()).toMinutes());
-                            journee.getToday_creneaus().set(index,nouveau_crenau_libre);
-                            journee.getCreneau_duree().set(index,nouveau_crenau_libre.getDuree());
+                            journee.getToday_creneaus().set(matchingIndex.getAsInt(),nouveau_crenau_libre);
+                            journee.getCreneau_duree().set(matchingIndex.getAsInt(),nouveau_crenau_libre.getDuree());
                         }else {
-                            journee.getToday_creneaus().remove(index);
-                            journee.getCreneau_duree().remove(index);
+                            journee.getToday_creneaus().remove(matchingIndex.getAsInt());
+                            journee.getCreneau_duree().remove(matchingIndex.getAsInt());
                         }
                     }else if (tache.getDuree()>Collections.max(journee.getCreneau_duree())){
                         if (tache.isTasktype()){

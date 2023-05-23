@@ -44,7 +44,6 @@ public class AddNewTaskController {
     public ComboBox taskType;
     public ComboBox locked;
     public List<String> category_names;
-
     public Button addTaskButton;
 
     public void initialize() {

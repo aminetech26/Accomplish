@@ -174,12 +174,16 @@ public class ManualPlannificationController {
                 creneaux = journeeList.get(i).today_creneaus;
                 for (int l = 0; l < creneaux.size(); l++){
                     if ( (creneaux.get(l).getDebutCrenau().format((DateTimeFormatter.ofPattern("HH:mm"))).equals(getTimeSlot().substring(0,5))) && (creneaux.get(l).getFinCrenau().format((DateTimeFormatter.ofPattern("HH:mm"))).equals(getTimeSlot().substring(9,14)) )){
-                        Pair<Tache, Creneau> pair = new Pair<Tache, Creneau>(task_test, creneaux.get(l));
-                        journeeList.get(l).getTache_plannifiee().add(pair);
-                        journeeList.get(l).today_creneaus.remove(journeeList.get(l).today_creneaus.get(l));
-                        journeeList.get(l).getCreneau_duree().remove(journeeList.get(l).getCreneau_duree().get(l));
-                        System.out.println("creneau trouve");
+                        if (!task_test.isScheduled()) {
+                            Pair<Tache, Creneau> pair = new Pair<Tache, Creneau>(task_test, creneaux.get(l));
+                            journeeList.get(l).getTache_plannifiee().add(pair);
+                            task_test.setScheduled(true);
 
+                            journeeList.get(l).today_creneaus.remove(journeeList.get(l).today_creneaus.get(l));
+                            journeeList.get(l).getCreneau_duree().remove(journeeList.get(l).getCreneau_duree().get(l));
+                            System.out.println("creneau trouve");
+
+                        }
 
                         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ListTasks.fxml")));
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -195,7 +199,7 @@ public class ManualPlannificationController {
 
     }
 
-    private class DatePickerCell extends javafx.scene.control.DateCell {
+    public static class DatePickerCell extends javafx.scene.control.DateCell {
         @Override
         public void updateItem(LocalDate item, boolean empty) {
             super.updateItem(item, empty);

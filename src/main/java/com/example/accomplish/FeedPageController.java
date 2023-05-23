@@ -33,8 +33,8 @@ public class FeedPageController implements Initializable {
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
-        Tache LastTask = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().size()-1);
-        TaskTitle_FeedPage.setText(LastTask.getTache_name());
+//        Tache LastTask = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().size()-1);
+  //      TaskTitle_FeedPage.setText(LastTask.getTache_name());
 
         //datePicker.show();
         signedInAsText.setText("Signed in as : " + Systeme.getCurrentUser().getUsername());

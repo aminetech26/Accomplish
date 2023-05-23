@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
@@ -12,7 +13,7 @@
       <Insets bottom="60.0" left="160.0" right="160.0" top="60.0" />
    </padding>
 
-   <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #86D6F8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <padding>
          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
       </padding>
@@ -36,18 +37,34 @@
          <GridPane.margin>
             <Insets top="10.0" />
          </GridPane.margin>
-         <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" styleClass="text-style" stylesheets="@style.css" text="Create an account" textAlignment="CENTER" textFill="WHITE">
+         <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" styleClass="text-style" stylesheets="@style.css" text="Create an account" textAlignment="CENTER">
             <font>
                <Font name="Arial Bold" size="30.0" />
             </font>
             <VBox.margin>
                <Insets />
             </VBox.margin>
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.0892999991774559" green="0.41034892201423645" blue="0.4699999988079071" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color opacity="0.7723076939582825" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill>
          </Label>
 
          <Label layoutX="10.0" layoutY="10.0" text="Enter a Username" textFill="#888888">
             <font>
-               <Font name="AdobeDevanagari-Regular" size="14.0" />
+               <Font name="AdobeDevanagari-Regular" size="15.0" />
             </font>
             <VBox.margin>
                <Insets top="10.0" />
@@ -64,7 +81,7 @@
 
          <Label layoutX="10.0" layoutY="10.0" text="Enter your password" textFill="#888888">
             <font>
-               <Font name="AdobeDevanagari-Regular" size="14.0" />
+               <Font name="AdobeDevanagari-Regular" size="15.0" />
             </font>
             <VBox.margin>
                <Insets top="10.0" />
@@ -79,7 +96,7 @@
 
          <Label layoutX="10.0" layoutY="10.0" text="Confirm your password" textFill="#888888">
             <font>
-               <Font name="AdobeDevanagari-Regular" size="14.0" />
+               <Font name="AdobeDevanagari-Regular" size="15.0" />
             </font>
             <VBox.margin>
                <Insets top="10.0" />
@@ -103,15 +120,15 @@
          <HBox alignment="CENTER">
             <Label layoutX="10.0" layoutY="10.0" text="Already have an account ?" textFill="#888888">
                <font>
-                  <Font name="Calisto MT Bold" size="14.0" />
+                  <Font name="Calisto MT Bold" size="15.0" />
                </font>
                <VBox.margin>
                   <Insets left="50.0" top="10.0" />
                </VBox.margin></Label>
 
-            <Label fx:id="Sing_In" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleLabel2Click" text="Sign In" textFill="#ffffff">
+            <Label fx:id="Sing_In" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleLabel2Click" text="Sign In">
                <font>
-                  <Font name="Calisto MT Bold" size="14.0" />
+                  <Font name="Calisto MT Bold" size="16.0" />
                </font>
                <HBox.margin>
                   <Insets left="5.0" />
