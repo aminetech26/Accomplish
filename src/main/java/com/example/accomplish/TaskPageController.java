@@ -33,6 +33,8 @@ public class TaskPageController implements Initializable {
     public ScrollPane scrollpane;
     public DatePicker datePicker;
 
+    public static List<Tache> list_TaskTest = new ArrayList<Tache>();
+
     public class CheckBoxHandler {
         private static int selectedCheckBoxesCounter = 0;
         private static int checkBoxCounter = 0;
@@ -111,6 +113,8 @@ public class TaskPageController implements Initializable {
         Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
         Planning current_planning = current.getList_planning().get(current.getList_planning().size()-1);
         showPopup((Stage) automatic_plannification.getScene().getWindow(),current_planning.getListe_taches().get(current_planning.getListe_taches().size()-1).getTache_name());
+        current_planning.trier_tache();
+        current_planning.plannification_automatique_avec_periode(current_planning.getListe_taches());
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ListTasks.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -144,11 +148,19 @@ public class TaskPageController implements Initializable {
         alert.initOwner(stage);
         alert.showAndWait();
     }
+
     public void GoToManualPlanning (ActionEvent event) throws IOException {
+
         Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
         Planning planning = current.getList_planning().get(current.getList_planning().size()-1);
         Tache task = planning.getListe_taches().get(planning.getListe_taches().size()-1);
         showPopup((Stage) Manual_Planning.getScene().getWindow(),task.getTache_name());
+
+        list_TaskTest.add(task);
+
+        /*Task_Test taskTest = new Task_Test(task.getTache_name(),task.getTache_priorite(),task.getTache_categorie(),false);
+        list_TaskTest.add(taskTest);*/
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("manual-plannification.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

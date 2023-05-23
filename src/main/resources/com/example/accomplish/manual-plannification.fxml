@@ -98,9 +98,9 @@
    <ComboBox fx:id="TaskCategory" layoutX="455.0" layoutY="215.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
    <ComboBox fx:id="TaskPriority" layoutX="455.0" layoutY="264.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
    <DatePicker fx:id="SetDay_ManualPlanning" editable="false" layoutX="454.0" layoutY="313.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
-   <ComboBox layoutX="454.0" layoutY="360.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
-   <ComboBox layoutX="454.0" layoutY="405.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
-   <Button layoutX="431.0" layoutY="531.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold;" text="Plan" textFill="WHITE">
+   <ComboBox fx:id="Set_TimeSlot" layoutX="454.0" layoutY="360.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+   <ComboBox fx:id="Task_IfLocked" layoutX="454.0" layoutY="405.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #EFFAFF;" />
+   <Button layoutX="431.0" layoutY="531.0" mnemonicParsing="false" onAction="#Plan_Manual" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #86D6F8; -fx-font-weight: bold;" text="Plan" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font size="15.0" />
       </font>

@@ -29,8 +29,6 @@ public class ListTasksController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
         Planning current_planning = current.getList_planning().get(current.getList_planning().size()-1);
-        current_planning.trier_tache();
-        current_planning.plannification_automatique_avec_periode(current_planning.getListe_taches());
 
         taskDate.setCellValueFactory(new PropertyValueFactory<>("date"));
 
@@ -45,10 +43,13 @@ public class ListTasksController implements Initializable {
 
         // Create a new Task object
         for (Journee journee:current_planning.getPeriode().getList_journee()) {
-            for (Pair<Tache,Creneau> pair:journee.getTache_plannifiee()) {
-                AffichagePlannificationController affichagePlannificationController =
-                        new AffichagePlannificationController(pair.getKey().getTache_name(),pair.getValue().getDebutCrenau().toString(),pair.getValue().getFinCrenau().toString(),journee.getDate().toString());
-                        tasks.add(affichagePlannificationController);
+            if (!journee.getTache_plannifiee().isEmpty()) {
+                for (Pair<Tache, Creneau> pair : journee.getTache_plannifiee()) {
+
+                    AffichagePlannificationController affichagePlannificationController =
+                            new AffichagePlannificationController(pair.getKey().getTache_name(), pair.getValue().getDebutCrenau().toString(), pair.getValue().getFinCrenau().toString(), journee.getDate().toString());
+                    tasks.add(affichagePlannificationController);
+                }
             }
         }
         // Set the items to the table view

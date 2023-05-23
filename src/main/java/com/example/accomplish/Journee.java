@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class Journee {
-    private List<Creneau> today_creneaus = new ArrayList<Creneau>();
+    public List<Creneau> today_creneaus = new ArrayList<Creneau>();
     private List<Pair<Tache,Creneau>> tache_plannifiee = new ArrayList<Pair<Tache,Creneau>>();
 
     public List<Pair<Tache, Creneau>> getTache_plannifiee() {
