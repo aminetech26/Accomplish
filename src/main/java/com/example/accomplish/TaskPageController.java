@@ -107,7 +107,16 @@ public class TaskPageController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    public void handleAutomaticPlannification (ActionEvent event) throws IOException {
+        Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
+        Planning current_planning = current.getList_planning().get(current.getList_planning().size()-1);
+        showPopup((Stage) automatic_plannification.getScene().getWindow(),current_planning.getListe_taches().get(current_planning.getListe_taches().size()-1).getTache_name());
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ListTasks.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     private void GoToTasksPage (MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("pageTasks.fxml")));

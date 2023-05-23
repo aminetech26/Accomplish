@@ -16,8 +16,10 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -123,12 +125,14 @@ public class AddNewTaskController {
         }else {
             isLocked = false;
         }
-        Tache new_task = new Tache(taskName.getText(),Priorite.valueOf(taskPriority.getValue().toString()),yesRadioButton.isSelected(),taskDeadline.getValue(),categorie,decomposable,isLocked);
+        Tache new_task = new Tache(taskName.getText(),Priorite.valueOf(taskPriority.getValue().toString()),yesRadioButton.isSelected(), taskDeadline.getValue(),categorie,decomposable,isLocked);
         new_task.setTache_etat_realisation(Etat_Realisation.NOTREALIZED);
         new_task.setScheduled(false);
         LocalTime duree = LocalTime.parse(taskDuration.getText(), DateTimeFormatter.ofPattern("HH:mm"));
         new_task.setDuree(Duration.between(LocalTime.MIN,duree).toMinutes());
-        Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().add(new_task);
+        Project current = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1);
+        Planning current_planning = current.getList_planning().get(current.getList_planning().size()-1);
+        current_planning.getListe_taches().add(new_task);
         CustomElement customElement = new CustomElement();
         customElement.addLabel(new_task.getTache_name());
         customElements.add(customElement);

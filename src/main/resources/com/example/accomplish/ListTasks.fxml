@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.ListTasksController">
+<VBox maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accomplish.ListTasksController">
 
     <TableView fx:id="tableView" maxHeight="625.0" maxWidth="1200.0" minHeight="625.0" minWidth="1200.0" prefHeight="625.0" prefWidth="1200.0" stylesheets="@style.css">
         <columns>
-            <TableColumn fx:id="taskNameColumn" prefWidth="444.0" text="Task Name" />
-            <TableColumn fx:id="startHourColumn" prefWidth="199.0" text="Start Hour" />
-            <TableColumn fx:id="endHourColumn" prefWidth="250.0" text="End Hour" />
-            <TableColumn fx:id="dateColumn" prefWidth="306.0" text="Date" />
+            <TableColumn fx:id="taskDate" prefWidth="306.0000101327896" text="Date" />
+            <TableColumn fx:id="taskNameColumn" prefWidth="312.6666564941406" text="Task name" />
+            <TableColumn fx:id="startCreneauColumn" prefWidth="230.00006103515625" text="Start of time-slot" />
+            <TableColumn fx:id="endCreneauColumn" prefWidth="348.66668701171875" text="End of time-slot" />
         </columns>
     </TableView>
 

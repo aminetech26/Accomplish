@@ -2,7 +2,9 @@ package com.example.accomplish;
 
 import javafx.util.Pair;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 public class Planning {
@@ -11,10 +13,6 @@ public class Planning {
     private LocalDate date_debut;
     private boolean type_planning;//avec periode true ou sans periode false
     private Periode periode;
-
-    public void setListe_taches(List<Tache> liste_taches) {
-        this.liste_taches = liste_taches;
-    }
 
 
     public boolean getType_planning() {
@@ -45,7 +43,7 @@ public class Planning {
         return liste_taches;
     }
 
-    public void setListe_taches(ArrayList<Tache> liste_taches) {
+    public void setListe_taches(List<Tache> liste_taches) {
         this.liste_taches = liste_taches;
     }
     public LocalDate getDate_debut() {
@@ -77,45 +75,135 @@ public class Planning {
     }
 
     public void trier_tache(){
-            // Sort based on deadline first, then priority
-            Comparator<Tache> comparator = Comparator.comparing(Tache::getDeadline).thenComparing(Tache::getTache_priorite);
-            // Sort the list
-            liste_taches.sort(comparator);
+        Comparator<Tache> comparator = Comparator.comparing(Tache::getDeadline,
+                        Comparator.nullsLast(Comparator.naturalOrder()))
+                .thenComparing(Tache::getTache_priorite);
+        liste_taches.sort(comparator);
     }
-
     public void plannification_automatique_avec_periode(List<Tache> liste_taches_a_plannifier){
         for (Tache tache:liste_taches_a_plannifier) {
             for (Journee journee: periode.getList_journee()) {
                 journee.setCrenauDurations();
-            if (journee.getDate().isBefore(tache.getDeadline())){
-                    if (journee.getCreneau_duree().stream().anyMatch(value -> Objects.equals(value, tache.getDuree()))){
-                        Pair<Tache,Creneau> pair = new Pair<>(tache,journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
+                //tache avec deadline
+                if (tache.isIfdeadline()) {
+                    if (journee.getDate().isBefore(tache.getDeadline())) {
+                        if (journee.getCreneau_duree().stream().anyMatch(value -> Objects.equals(value, tache.getDuree()))) {
+                            tache.setScheduled(true);
+                            Pair<Tache, Creneau> pair = new Pair<>(tache, journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
+                            journee.getTache_plannifiee().add(pair);
+                            journee.getCreneau_duree().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                            journee.getToday_creneaus().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                        } else if (Collections.max(journee.getCreneau_duree()) > tache.getDuree()) {
+                            int index = journee.getCreneau_duree().indexOf(Collections.max(journee.getCreneau_duree()));
+                            Creneau creneau_complet = journee.getToday_creneaus().get(index);
+                            Creneau creneau_tache = new Creneau(creneau_complet.getDebutCrenau(),creneau_complet.getDebutCrenau().plusMinutes(tache.getDuree()),tache.getDuree());
+                            tache.setScheduled(true);
+                            Pair<Tache, Creneau> pair = new Pair<>(tache, creneau_tache);
+                            journee.getTache_plannifiee().add(pair);
+                            if (Duration.between(creneau_tache.getFinCrenau(),creneau_complet.getFinCrenau()).toMinutes()>Systeme.getSeuil_minimal()) {
+                                Creneau nouveau_crenau_libre = new Creneau();
+                                nouveau_crenau_libre.setDebutCrenau(creneau_tache.getFinCrenau());
+                                nouveau_crenau_libre.setFinCrenau(creneau_complet.getFinCrenau());
+                                nouveau_crenau_libre.setDuree(Duration.between(creneau_tache.getFinCrenau(),creneau_complet.getFinCrenau()).toMinutes());
+                                journee.getToday_creneaus().set(index,nouveau_crenau_libre);
+                                journee.getCreneau_duree().set(index,nouveau_crenau_libre.getDuree());
+                            }else {
+                                journee.getToday_creneaus().remove(index);
+                                journee.getCreneau_duree().remove(index);
+                            }
+                        }else if (tache.getDuree()>Collections.max(journee.getCreneau_duree())){
+                            if (tache.isTasktype()){
+                                Tache nouvelle_tache1 = new Tache();
+                                nouvelle_tache1.setTasktype(false);
+                                nouvelle_tache1.setTache_name(tache.getTache_name()+" D");
+                                nouvelle_tache1.setScheduled(false);
+                                nouvelle_tache1.setIfdeadline(tache.isIfdeadline());
+                                nouvelle_tache1.setTache_etat_realisation(Etat_Realisation.NOTREALIZED);
+                                if (tache.isIfdeadline()){
+                                    nouvelle_tache1.setDeadline(tache.getDeadline());
+                                }
+                                nouvelle_tache1.setDuree(tache.getDuree()-Collections.max(journee.getCreneau_duree()));
+                                Tache nouvelle_tache2 = new Tache();
+                                nouvelle_tache2.setTache_name(tache.getTache_name()+" D");
+                                nouvelle_tache2.setTasktype(false);
+                                nouvelle_tache2.setScheduled(false);
+                                nouvelle_tache2.setIfdeadline(tache.isIfdeadline());
+                                nouvelle_tache2.setTache_etat_realisation(Etat_Realisation.NOTREALIZED);
+                                if (tache.isIfdeadline()){
+                                    nouvelle_tache2.setDeadline(tache.getDeadline());
+                                }
+                                int index = liste_taches_a_plannifier.indexOf(tache);
+                                nouvelle_tache2.setDuree(Collections.max(journee.getCreneau_duree()));
+                                liste_taches_a_plannifier.add(index+1,nouvelle_tache1);
+                                liste_taches_a_plannifier.add(index+2,nouvelle_tache1);
+                                liste_taches_a_plannifier.remove(index);
+                            }else { //tache non decomposable - simple
+                                continue;
+                            }
+                        }
+                    } else {
+                        Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size() - 1).getTaches_unscheduled().add(tache);
+                    }
+                }
+                //tache sans deadline
+                else {
+                    if (journee.getCreneau_duree().stream().anyMatch(value -> Objects.equals(value, tache.getDuree()))) {
+                        tache.setScheduled(true);
+                        Pair<Tache, Creneau> pair = new Pair<>(tache, journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(tache.getDuree())));
                         journee.getTache_plannifiee().add(pair);
-                        journee.getCreneau_duree().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
-                        journee.getToday_creneaus().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
-                    }else if (Collections.max(journee.getCreneau_duree()) > tache.getDuree()){
-                        Creneau creneau_complet = journee.getToday_creneaus().get(journee.getCreneau_duree().indexOf(Collections.max(journee.getCreneau_duree())));
-                        //heure fin et minute fin se calcule selon la duree de la tache -- qui seront heure debut et minutre debut du nouveau crenau
-
+                        //journee.getCreneau_duree().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                        //journee.getToday_creneaus().remove(journee.getCreneau_duree().indexOf(tache.getDuree()));
+                    } else if (Collections.max(journee.getCreneau_duree()) > tache.getDuree()) {
+                        int index = journee.getCreneau_duree().indexOf(Collections.max(journee.getCreneau_duree()));
+                        Creneau creneau_complet = journee.getToday_creneaus().get(index);
+                        Creneau creneau_tache = new Creneau(creneau_complet.getDebutCrenau(),creneau_complet.getDebutCrenau().plusMinutes(tache.getDuree()),tache.getDuree());
+                        tache.setScheduled(true);
+                        Pair<Tache, Creneau> pair = new Pair<>(tache, creneau_tache);
+                        journee.getTache_plannifiee().add(pair);
+                        if (Duration.between(creneau_tache.getFinCrenau(),creneau_complet.getFinCrenau()).toMinutes()>Systeme.getSeuil_minimal()) {
+                            Creneau nouveau_crenau_libre = new Creneau();
+                            nouveau_crenau_libre.setDebutCrenau(creneau_tache.getFinCrenau());
+                            nouveau_crenau_libre.setFinCrenau(creneau_complet.getFinCrenau());
+                            nouveau_crenau_libre.setDuree(Duration.between(creneau_tache.getFinCrenau(),creneau_complet.getFinCrenau()).toMinutes());
+                            journee.getToday_creneaus().set(index,nouveau_crenau_libre);
+                            journee.getCreneau_duree().set(index,nouveau_crenau_libre.getDuree());
+                        }else {
+                            journee.getToday_creneaus().remove(index);
+                            journee.getCreneau_duree().remove(index);
+                        }
+                    }else if (tache.getDuree()>Collections.max(journee.getCreneau_duree())){
+                        if (tache.isTasktype()){
+                            Tache nouvelle_tache1 = new Tache();
+                            nouvelle_tache1.setTasktype(false);
+                            nouvelle_tache1.setTache_name(tache.getTache_name()+" D");
+                            nouvelle_tache1.setScheduled(false);
+                            nouvelle_tache1.setIfdeadline(tache.isIfdeadline());
+                            nouvelle_tache1.setTache_etat_realisation(Etat_Realisation.NOTREALIZED);
+                            if (tache.isIfdeadline()){
+                                nouvelle_tache1.setDeadline(tache.getDeadline());
+                            }
+                            nouvelle_tache1.setDuree(tache.getDuree()-Collections.max(journee.getCreneau_duree()));
+                            Tache nouvelle_tache2 = new Tache();
+                            nouvelle_tache2.setTache_name(tache.getTache_name()+" D");
+                            nouvelle_tache2.setTasktype(false);
+                            nouvelle_tache2.setScheduled(false);
+                            nouvelle_tache2.setIfdeadline(tache.isIfdeadline());
+                            nouvelle_tache2.setTache_etat_realisation(Etat_Realisation.NOTREALIZED);
+                            if (tache.isIfdeadline()){
+                                nouvelle_tache2.setDeadline(tache.getDeadline());
+                            }
+                            int index = liste_taches_a_plannifier.indexOf(tache);
+                            nouvelle_tache2.setDuree(Collections.max(journee.getCreneau_duree()));
+                            liste_taches_a_plannifier.add(index+1,nouvelle_tache1);
+                            liste_taches_a_plannifier.add(index+2,nouvelle_tache1);
+                            liste_taches_a_plannifier.remove(index);
+                        }else { //tache non decomposable - simple
+                            continue;
+                        }
+                    }
                     }
 
-
-
-
-            }else {
-                Systeme.currentUser.getListe_projet().get(Systeme.currentUser.getListe_projet().size()-1).getTaches_unscheduled().add(tache);
             }
-
-
-
-
-
-
-
-
-            }
-
-
 
         }
     }

@@ -156,7 +156,7 @@
                <Insets left="25.0" />
             </HBox.margin>
             </Button>
-            <Button id="Auto_Planning" fx:id="automatic_plannification" layoutX="205.0" layoutY="78.0" prefHeight="83.0" prefWidth="221.0" style="-fx-font-weight: bold;" styleClass="button-custom" stylesheets="@style.css" text="Automatic planification">
+            <Button id="Auto_Planning" fx:id="automatic_plannification" layoutX="205.0" layoutY="78.0" onAction="#handleAutomaticPlannification" prefHeight="83.0" prefWidth="221.0" style="-fx-font-weight: bold;" styleClass="button-custom" stylesheets="@style.css" text="Automatic planification">
                 <font>
                     <Font size="15.0" />
                 </font>

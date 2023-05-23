@@ -14,7 +14,7 @@ public class Systeme {
     private static final String FOLDER_NAME = "AccomplishFiles";
     private static String userDataFilePath = System.getProperty("user.dir") + File.separator + FOLDER_NAME + File.separator + USER_LIST_FILE;
 
-    private static int seuil_minimal;
+    private static int seuil_minimal = 30;
     private static int nb_tache_minimal;
     public static List<Utilisateur> users_list;
     public static Utilisateur currentUser;
