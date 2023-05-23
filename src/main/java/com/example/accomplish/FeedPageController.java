@@ -26,11 +26,16 @@ public class FeedPageController implements Initializable {
     public Text planningName;
     public Text periodLabel;
     public Text countdown;
+    public Text TaskTitle_FeedPage;
     @FXML
     private DatePicker datePicker;
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
+
+        Tache LastTask = Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size()-1).getList_planning().size()-1).getListe_taches().size()-1);
+        TaskTitle_FeedPage.setText(LastTask.getTache_name());
+
         //datePicker.show();
         signedInAsText.setText("Signed in as : " + Systeme.getCurrentUser().getUsername());
         planningName.setText("Planning Name : " + Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().get(Systeme.getCurrentUser().getListe_projet().get(Systeme.getCurrentUser().getListe_projet().size() - 1).getList_planning().size() - 1).getPlanning_name());

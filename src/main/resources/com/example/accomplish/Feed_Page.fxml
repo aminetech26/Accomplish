@@ -180,7 +180,7 @@
    <Text fx:id="planningName" layoutX="96.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Nom planning :" />
    <Text fx:id="periodLabel" layoutX="96.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Period :" />
    <Text fx:id="countdown" layoutX="96.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Count down :" />
-   <Text layoutX="437.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-text-alignment: CENTER;" text="Task title" wrappingWidth="87.29736328125">
+   <Text fx:id="TaskTitle_FeedPage" layoutX="437.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-text-alignment: CENTER;" text="Task title" wrappingWidth="87.29736328125">
       <font>
          <Font size="15.0" />
       </font>
